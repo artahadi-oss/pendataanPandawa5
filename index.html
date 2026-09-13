@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karang Taruna Pandu Muda Sawahan 5 - Pandawa Lima</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -13,32 +12,15 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#fff1f2',
-                            100: '#ffe4e6',
-                            500: '#f43f5e',
-                            600: '#e11d48',
-                            700: '#be123c',
-                            800: '#9f1239',
-                            900: '#881337',
-                            neon: '#ff003c',
-                            dark: '#0a0a0c',
-                            card: '#121216',
-                            border: '#27272a',
-                            gold: '#fbbf24'
+                            50: '#fff1f2', 100: '#ffe4e6', 500: '#f43f5e', 600: '#e11d48',
+                            700: '#be123c', 800: '#9f1239', 900: '#881337', neon: '#ff003c',
+                            dark: '#0a0a0c', card: '#121216', border: '#27272a', gold: '#fbbf24'
                         }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        'neon-red': '0 0 20px rgba(255, 0, 60, 0.4)',
-                        'glow': '0 0 15px rgba(225, 29, 72, 0.35)'
                     }
                 }
             }
         }
     </script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -46,17 +28,8 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0a0a0c; }
         ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
-        .glass-card {
-            background: rgba(18, 18, 22, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #ffffff 0%, #ff4d6d 50%, #ff003c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .glass-card { background: rgba(18, 18, 22, 0.85); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .gradient-text { background: linear-gradient(135deg, #ffffff 0%, #ff4d6d 50%, #ff003c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .badge-pulse { animation: pulse-red 2s infinite; }
         @keyframes pulse-red {
             0% { box-shadow: 0 0 0 0 rgba(255, 0, 60, 0.7); }
@@ -67,55 +40,46 @@
 </head>
 <body class="min-h-screen bg-brand-dark text-gray-100 flex flex-col justify-between relative overflow-x-hidden">
 
-    <!-- HEADER -->
     <header class="relative z-10 overflow-hidden border-b border-zinc-800/80 bg-gradient-to-b from-zinc-950 via-brand-dark to-brand-dark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
                     <div class="w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-2xl border-2 border-brand-500 p-1 flex items-center justify-center shadow-2xl overflow-hidden">
                         <img src="logo.jpg" alt="Logo Karang Taruna" class="w-full h-full object-contain">
                     </div>
                     <div>
-                        <div class="flex items-center justify-center sm:justify-start gap-2 mb-1.5 flex-wrap">
+                        <div class="flex items-center justify-center sm:justify-start gap-2 mb-1.5">
                             <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-950/90 border border-brand-800/80 text-brand-400 text-xs font-semibold">
-                                <span class="w-2 h-2 rounded-full bg-brand-neon badge-pulse"></span>
-                                Sinkronisasi Real-Time Google Sheets
+                                <span class="w-2 h-2 rounded-full bg-brand-neon badge-pulse"></span> Database Publik Terhubung
                             </span>
                         </div>
                         <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight uppercase leading-tight">
                             <span class="gradient-text">PANDU MUDA</span> <span class="text-white">SAWAHAN 5</span>
                         </h1>
-                        <p class="text-xs sm:text-sm text-zinc-400 mt-1 font-semibold flex items-center justify-center sm:justify-start gap-2">
-                            <i class="fa-solid fa-shield-halved text-brand-500"></i> KARANG TARUNA <span class="text-brand-400 font-extrabold">PANDAWA LIMA</span>
-                        </p>
                     </div>
                 </div>
-                <div class="flex items-center gap-3 w-full md:w-auto justify-center">
-                    <button onclick="fetchDataFromSheet()" class="px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white font-semibold text-sm transition flex items-center gap-2" title="Muat Ulang Data">
-                        <i class="fa-solid fa-rotate text-brand-500"></i>
-                        <span>Refresh Data</span>
+                <div class="flex items-center gap-3">
+                    <button onclick="fetchDataFromSheet()" class="px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white font-semibold text-sm transition flex items-center gap-2">
+                        <i class="fa-solid fa-rotate text-brand-500"></i> Refresh Data
                     </button>
                     <button onclick="exportDataCSV()" class="px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white font-semibold text-sm transition flex items-center gap-2">
-                        <i class="fa-solid fa-file-csv text-emerald-500 text-lg"></i>
-                        <span class="hidden sm:inline">Export CSV</span>
+                        <i class="fa-solid fa-file-csv text-emerald-500 text-lg"></i> Export CSV
                     </button>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow space-y-8 w-full relative z-10">
-        <!-- STATISTIK -->
+        <!-- Statistik -->
         <section class="grid grid-cols-2 lg:grid-cols-5 gap-4">
-            <div class="col-span-2 lg:col-span-1 glass-card p-5 rounded-2xl border border-zinc-800/90 flex items-center justify-between relative overflow-hidden">
+            <div class="col-span-2 lg:col-span-1 glass-card p-5 rounded-2xl border border-zinc-800/90 flex items-center justify-between">
                 <div>
                     <p class="text-xs text-zinc-400 font-bold tracking-wider uppercase">Total Pemuda/i</p>
                     <h3 id="statTotal" class="text-3xl font-black text-white mt-1">0</h3>
-                    <p class="text-[11px] text-zinc-500 mt-1"><i class="fa-solid fa-users text-brand-500 mr-1"></i> Terdaftar</p>
                 </div>
-                <div class="w-12 h-12 rounded-xl bg-brand-950/80 border border-brand-800/50 flex items-center justify-center text-brand-500 text-xl shadow-glow">
-                    <i class="fa-solid fa-id-card"></i>
+                <div class="w-12 h-12 rounded-xl bg-brand-950/80 border border-brand-800/50 flex items-center justify-center text-brand-500 text-xl">
+                    <i class="fa-solid fa-users"></i>
                 </div>
             </div>
             <div class="glass-card p-4 rounded-2xl border border-zinc-800/90 flex flex-col justify-between">
@@ -137,31 +101,25 @@
         </section>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <!-- FORM INPUT -->
-            <section id="formSection" class="lg:col-span-5 glass-card rounded-3xl border border-zinc-800/90 p-6 sm:p-8 relative overflow-hidden">
-                <div class="flex items-center justify-between mb-6 pb-4 border-b border-zinc-800/80">
-                    <div>
-                        <h2 id="formTitle" class="text-xl font-black text-white flex items-center gap-2">
-                            <i class="fa-solid fa-user-plus text-brand-500"></i> Pendataan Anggota Baru
-                        </h2>
-                        <p class="text-xs text-zinc-400 mt-1">Data langsung tersimpan ke database publik</p>
-                    </div>
+            <!-- Form Input -->
+            <section class="lg:col-span-5 glass-card rounded-3xl border border-zinc-800/90 p-6 sm:p-8">
+                <div class="mb-6 pb-4 border-b border-zinc-800/80">
+                    <h2 class="text-xl font-black text-white flex items-center gap-2">
+                        <i class="fa-solid fa-user-plus text-brand-500"></i> Pendataan Anggota Baru
+                    </h2>
                 </div>
 
                 <form id="memberForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
-                    <!-- Foto -->
                     <div class="space-y-2">
-                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Foto Selfie / Profil <span class="text-brand-500">*</span></label>
+                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Foto Selfie / Profil *</label>
                         <div class="flex items-center gap-4 bg-zinc-950/80 p-4 rounded-2xl border border-zinc-800">
                             <div class="relative w-20 h-20 rounded-2xl bg-zinc-900 border-2 border-dashed border-zinc-700 flex items-center justify-center overflow-hidden flex-shrink-0">
                                 <img id="photoPreview" src="" class="hidden w-full h-full object-cover rounded-xl" alt="Preview">
-                                <div id="photoPlaceholder" class="text-center p-2">
-                                    <i class="fa-solid fa-camera text-xl text-zinc-600"></i>
-                                </div>
+                                <div id="photoPlaceholder" class="text-center p-2"><i class="fa-solid fa-camera text-xl text-zinc-600"></i></div>
                             </div>
                             <div class="flex-grow">
                                 <label class="w-full px-3 py-2.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-700 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition cursor-pointer text-center">
-                                    <i class="fa-solid fa-upload text-blue-400"></i> Pilih Foto File
+                                    <i class="fa-solid fa-upload text-blue-400"></i> Pilih Foto
                                     <input type="file" id="photoFileInput" accept="image/*" onchange="handleFileUpload(event)" required class="hidden">
                                 </label>
                                 <input type="hidden" id="photoBase64" required>
@@ -169,21 +127,18 @@
                         </div>
                     </div>
 
-                    <!-- Nama Lengkap -->
                     <div class="space-y-1.5">
-                        <label for="fullName" class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Nama Lengkap <span class="text-brand-500">*</span></label>
+                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Nama Lengkap *</label>
                         <input type="text" id="fullName" required placeholder="Contoh: Budi Santoso" class="w-full px-4 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-brand-500">
                     </div>
 
-                    <!-- Tanggal Lahir -->
                     <div class="space-y-1.5">
-                        <label for="birthDate" class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Tanggal Lahir <span class="text-brand-500">*</span></label>
+                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Tanggal Lahir *</label>
                         <input type="date" id="birthDate" required class="w-full px-4 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-brand-500">
                     </div>
 
-                    <!-- Jenis Kelamin -->
                     <div class="space-y-1.5">
-                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Jenis Kelamin <span class="text-brand-500">*</span></label>
+                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Jenis Kelamin *</label>
                         <div class="grid grid-cols-2 gap-3">
                             <label class="flex items-center justify-center gap-2 p-2.5 rounded-xl border border-zinc-800 bg-zinc-950/50 cursor-pointer">
                                 <input type="radio" name="gender" value="Laki-laki" required class="accent-brand-500">
@@ -196,9 +151,8 @@
                         </div>
                     </div>
 
-                    <!-- Pekerjaan -->
                     <div class="space-y-1.5">
-                        <label for="job" class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Pekerjaan / Kegiatan <span class="text-brand-500">*</span></label>
+                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Pekerjaan / Kegiatan *</label>
                         <select id="job" required class="w-full px-4 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-brand-500">
                             <option value="" disabled selected>Pilih Pekerjaan...</option>
                             <option value="Pelajar / Mahasiswa">Pelajar / Mahasiswa</option>
@@ -210,10 +164,9 @@
                         </select>
                     </div>
 
-                    <!-- Sektor & RT/RW -->
                     <div class="grid grid-cols-2 gap-3">
                         <div class="space-y-1.5">
-                            <label for="sector" class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Sektor <span class="text-brand-500">*</span></label>
+                            <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Sektor *</label>
                             <select id="sector" required class="w-full px-3 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-xs text-white">
                                 <option value="" disabled selected>Pilih Sektor...</option>
                                 <option value="Sektor 01">Sektor 01</option>
@@ -223,18 +176,18 @@
                             </select>
                         </div>
                         <div class="space-y-1.5">
-                            <label for="rtRw" class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">RT / RW</label>
+                            <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">RT / RW</label>
                             <input type="text" id="rtRw" placeholder="RT 02 / RW 05" class="w-full px-3 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-xs text-white">
                         </div>
                     </div>
 
-                    <button type="submit" id="submitBtn" class="w-full py-3.5 bg-gradient-to-r from-brand-600 to-rose-600 hover:from-brand-500 hover:to-rose-500 text-white font-extrabold text-sm rounded-xl shadow-neon-red transition duration-200">
+                    <button type="submit" id="submitBtn" class="w-full py-3.5 bg-gradient-to-r from-brand-600 to-rose-600 text-white font-extrabold text-sm rounded-xl transition">
                         Simpan & Kirim Data
                     </button>
                 </form>
             </section>
 
-            <!-- TABEL / REKAP PUBLIK -->
+            <!-- Tabel Data Publik -->
             <section class="lg:col-span-7 space-y-4">
                 <div class="glass-card p-4 rounded-2xl border border-zinc-800/90 flex flex-col sm:flex-row gap-3 items-center justify-between">
                     <div class="relative w-full sm:w-64">
@@ -271,40 +224,27 @@
         </div>
     </main>
 
-    <footer class="border-t border-zinc-800/80 bg-zinc-950 py-6 text-center text-xs text-zinc-500 relative z-10 mt-12">
+    <footer class="border-t border-zinc-800/80 bg-zinc-950 py-6 text-center text-xs text-zinc-500 mt-12">
         <p>&copy; 2026 Karang Taruna Pandawa Lima - Padukuhan Sawahan 5.</p>
     </footer>
 
-    <!-- JAVASCRIPT LOGIC -->
     <script>
         let members = [];
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyoJ1UViW-ARpvLeZqQqn1gAL6SUWZTFNsz7PXqff_DhC8blvfQukMRiRq5MVIyIuDTpw/exec';
+        const scriptURL = 'MASUKKAN_URL_WEB_APP_ANDA_DISINI'; // Ganti dengan URL deployment Web App Anda
 
         document.addEventListener("DOMContentLoaded", () => {
             fetchDataFromSheet();
         });
 
-        // FUNGSI MENGAMBIL DATA REKAP DARI GOOGLE SHEETS
         async function fetchDataFromSheet() {
             try {
                 const response = await fetch(scriptURL);
                 const data = await response.json();
-                members = data.map(item => ({
-                    id: item.ID || item.id,
-                    name: item.Nama || item.name,
-                    birthDate: item.TanggalLahir || item.birthDate,
-                    gender: item.JenisKelamin || item.gender,
-                    job: item.Pekerjaan || item.job,
-                    sector: item.Sektor || item.sector,
-                    rtRw: item.RTRW || item.rtRw || '-',
-                    photo: item.Foto || item.photo || ''
-                }));
+                members = Array.isArray(data) ? data : [];
                 renderTable();
             } catch (error) {
                 console.error("Gagal memuat data:", error);
-                // Fallback ke localStorage jika offline/gagal
-                members = JSON.parse(localStorage.getItem('kt_members')) || [];
-                renderTable();
+                document.getElementById('memberTableBody').innerHTML = `<tr><td colspan="4" class="p-6 text-center text-red-400">Gagal memuat data dari server.</td></tr>`;
             }
         }
 
@@ -338,15 +278,21 @@
             submitBtn.innerText = "Mengirim Data...";
             submitBtn.disabled = true;
 
-            const payload = {
+            const payloadData = {
                 id: Date.now(),
                 photo: document.getElementById('photoBase64').value,
-                name: document.getElementById('fullName').value,
+                fullName: document.getElementById('fullName').value,
                 birthDate: document.getElementById('birthDate').value,
                 gender: document.querySelector('input[name="gender"]:checked').value,
                 job: document.getElementById('job').value,
                 sector: document.getElementById('sector').value,
-                rtRw: document.getElementById('rtRw').value || '-'
+                rtRw: document.getElementById('rtRw').value || '-',
+                createdAt: new Date().toISOString()
+            };
+
+            const bodyPayload = {
+                action: 'create',
+                payload: payloadData
             };
 
             try {
@@ -354,15 +300,15 @@
                     method: 'POST',
                     mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
+                    body: JSON.stringify(bodyPayload)
                 });
+                
                 alert("Data berhasil dikirim dan tersimpan di sistem publik!");
                 document.getElementById('memberForm').reset();
                 document.getElementById('photoPreview').classList.add('hidden');
                 document.getElementById('photoPlaceholder').classList.remove('hidden');
                 
-                // Refresh data setelah kirim
-                setTimeout(fetchDataFromSheet, 2000);
+                setTimeout(fetchDataFromSheet, 3000);
             } catch (error) {
                 console.error('Error!', error.message);
                 alert("Terjadi kesalahan saat mengirim data.");
@@ -384,7 +330,6 @@
                 return matchSearch && matchSector;
             });
 
-            // Update Statistik Sektor
             document.getElementById('statTotal').innerText = members.length;
             document.getElementById('statSek1').innerText = members.filter(m => m.sector === 'Sektor 01').length;
             document.getElementById('statSek2').innerText = members.filter(m => m.sector === 'Sektor 02').length;
