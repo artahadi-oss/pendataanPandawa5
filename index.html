@@ -6,7 +6,6 @@
     <title>Karang Taruna Pandu Muda Sawahan 5 - Pandawa Lima</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tailwind Config for Custom Theme -->
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -51,51 +50,32 @@
             background-color: #0a0a0c;
             color: #f4f4f5;
         }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0c;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #27272a;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #e11d48;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0c; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e11d48; }
         .glass-card {
             background: rgba(18, 18, 22, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .glass-card-hover:hover {
-            border-color: rgba(255, 0, 60, 0.4);
-            box-shadow: 0 0 25px rgba(255, 0, 60, 0.2);
-        }
         .gradient-text {
             background: linear-gradient(135deg, #ffffff 0%, #ff4d6d 50%, #ff003c 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .badge-pulse {
-            animation: pulse-red 2s infinite;
-        }
+        .badge-pulse { animation: pulse-red 2s infinite; }
         @keyframes pulse-red {
             0% { box-shadow: 0 0 0 0 rgba(255, 0, 60, 0.7); }
             70% { box-shadow: 0 0 0 10px rgba(255, 0, 60, 0); }
             100% { box-shadow: 0 0 0 0 rgba(255, 0, 60, 0); }
         }
-        .bg-watermark {
-            background-image: radial-gradient(circle at center, rgba(255,0,60,0.05) 0%, transparent 70%);
-        }
     </style>
 </head>
-<body class="min-h-screen bg-brand-dark text-gray-100 flex flex-col justify-between selection:bg-brand-600 selection:text-white relative overflow-x-hidden">
+<body class="min-h-screen bg-brand-dark text-gray-100 flex flex-col justify-between relative overflow-x-hidden">
 
-    <!-- Ambient Watermark Emblem in Background -->
+    <!-- Ambient Watermark Emblem -->
     <div class="fixed inset-0 pointer-events-none flex items-center justify-center opacity-5 z-0">
         <svg viewBox="0 0 800 800" class="w-[900px] h-[900px]">
             <path fill="#e11d48" d="M400,100 C200,50 100,250 50,450 C150,420 250,450 300,500 C250,350 300,200 400,100 Z"/>
@@ -105,87 +85,39 @@
         </svg>
     </div>
 
-    <!-- HEADER / BANNER KARANG TARUNA -->
+    <!-- HEADER -->
     <header class="relative z-10 overflow-hidden border-b border-zinc-800/80 bg-gradient-to-b from-zinc-950 via-brand-dark to-brand-dark">
-        <!-- Background Ambient Glow -->
         <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[320px] bg-brand-600/20 blur-[130px] rounded-full pointer-events-none"></div>
-        
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 relative z-10">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                
-                <!-- Official Logo & Title -->
                 <div class="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
-                    <div class="relative group cursor-pointer" onclick="openLogoModal()" title="Klik untuk pratinjau / kelola logo">
-                        <div class="absolute -inset-2 bg-gradient-to-r from-brand-neon via-rose-600 to-amber-500 rounded-3xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
-                        
-                        <!-- Dynamic Logo Container showing Official Inline SVG Logo -->
+                    <div class="relative group cursor-pointer">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-brand-neon via-rose-600 to-amber-500 rounded-3xl blur opacity-75"></div>
                         <div id="mainLogoContainer" class="relative w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-2xl border-2 border-brand-500 p-1 flex items-center justify-center shadow-2xl overflow-hidden">
-                            <!-- Official Vector SVG Emblem Logo -->
                             <svg id="officialSvgLogo" viewBox="0 0 500 500" class="w-full h-full object-contain">
-                                <!-- Background circle glow -->
                                 <circle cx="250" cy="250" r="240" fill="#ffffff" />
-                                
-                                <!-- Top Curved Text Arc: PANDU MUDA SAWAHAN 5 -->
                                 <path id="textArcTop" fill="none" d="M 70,250 A 180,180 0 0,1 430,250" />
                                 <text font-family="Inter, sans-serif" font-weight="900" font-size="30" fill="#000000" letter-spacing="2">
                                     <textPath href="#textArcTop" startOffset="50%" text-anchor="middle">PANDU MUDA SAWAHAN 5</textPath>
                                 </text>
-
-                                <!-- Left Red Wing with Black Feathers -->
                                 <g id="leftWing">
                                     <path d="M 230,230 C 180,70 120,40 50,20 C 70,100 80,160 85,220 C 65,260 60,300 75,340 C 90,290 120,250 160,235 C 130,270 110,320 120,380 C 145,330 175,280 230,230 Z" fill="#e11d48"/>
-                                    <path d="M 125,180 C 100,210 90,250 85,310 C 105,270 135,230 175,200 Z" fill="#000000"/>
-                                    <path d="M 155,220 C 135,250 125,290 120,350 C 140,310 170,270 205,240 Z" fill="#000000"/>
-                                    <path d="M 175,240 C 160,270 150,305 145,365 C 165,330 190,295 220,265 Z" fill="#000000"/>
                                 </g>
-
-                                <!-- Right Red Wing with Black Feathers -->
                                 <g id="rightWing">
                                     <path d="M 270,230 C 320,70 380,40 450,20 C 430,100 420,160 415,220 C 435,260 440,300 425,340 C 410,290 380,250 340,235 C 370,270 390,320 380,380 C 355,330 325,280 270,230 Z" fill="#e11d48"/>
-                                    <path d="M 375,180 C 400,210 410,250 415,310 C 395,270 365,230 325,200 Z" fill="#000000"/>
-                                    <path d="M 345,220 C 365,250 375,290 380,350 C 360,310 330,270 295,240 Z" fill="#000000"/>
-                                    <path d="M 325,240 C 340,270 350,305 355,365 C 335,330 310,295 280,265 Z" fill="#000000"/>
                                 </g>
-
-                                <!-- Center Lotus Shield Badge -->
                                 <g id="centerShield">
-                                    <!-- Yellow Outer Shield Flower border -->
-                                    <path d="M 250,140 C 310,140 350,180 350,240 C 350,300 310,340 250,340 C 190,340 150,300 150,240 C 150,180 190,140 250,140 Z" fill="#fbbf24" stroke="#000" stroke-width="4"/>
-                                    <!-- Inner Red Ring -->
                                     <circle cx="250" cy="240" r="85" fill="#be123c" stroke="#ffffff" stroke-width="5"/>
-                                    
-                                    <!-- White Arc Ribbon Text: ADHITYA KARYA MAHAT VAYODHA -->
-                                    <path id="shieldArcText" fill="none" d="M 180,240 A 70,70 0 0,1 320,240" />
-                                    <path d="M 175,235 A 75,75 0 0,1 325,235" fill="none" stroke="#ffffff" stroke-width="16"/>
-                                    <text font-family="Inter, sans-serif" font-weight="900" font-size="11" fill="#000000">
-                                        <textPath href="#shieldArcText" startOffset="50%" text-anchor="middle">ADHITYA KARYA MAHAT VAYODHA</textPath>
-                                    </text>
-
-                                    <!-- Lotus Bunga Melati Emblem -->
-                                    <g id="lotusFlower" transform="translate(250, 245) scale(0.85)">
-                                        <path d="M 0,-35 C 15,-15 20,10 0,25 C -20,10 -15,-15 0,-35 Z" fill="#ffffff" stroke="#e11d48" stroke-width="2"/>
-                                        <path d="M -10,-25 C 10,-10 25,15 -10,30 C -25,10 -10,-10 -10,-25 Z" fill="#ffffff" stroke="#e11d48" stroke-width="2"/>
-                                        <path d="M 10,-25 C -10,-10 -25,15 10,30 C 25,10 10,-10 10,-25 Z" fill="#ffffff" stroke="#e11d48" stroke-width="2"/>
-                                        <path d="M -25,-10 C 5,0 20,25 -20,35 C -35,15 -20,0 -25,-10 Z" fill="#ffffff" stroke="#e11d48" stroke-width="2"/>
-                                        <path d="M 25,-10 C -5,0 -20,25 20,35 C 35,15 20,0 25,-10 Z" fill="#ffffff" stroke="#e11d48" stroke-width="2"/>
-                                    </g>
-
-                                    <!-- Bottom White Banner: KARANG TARUNA -->
                                     <rect x="195" y="305" width="110" height="20" rx="5" fill="#ffffff" stroke="#000" stroke-width="2"/>
                                     <text x="250" y="319" font-family="Inter, sans-serif" font-weight="900" font-size="11" fill="#000000" text-anchor="middle">KARANG TARUNA</text>
                                 </g>
-
-                                <!-- Bottom Red Ribbon Banner: PANDAWA LIMA -->
                                 <g id="bottomRibbon">
                                     <path d="M 100,410 L 150,380 L 350,380 L 400,410 L 380,450 L 120,450 Z" fill="#e11d48" stroke="#000000" stroke-width="4"/>
                                     <text x="250" y="430" font-family="Inter, sans-serif" font-weight="900" font-size="30" fill="#ffffff" text-anchor="middle" letter-spacing="3">PANDAWA LIMA</text>
                                 </g>
                             </svg>
-                            <!-- Custom Upload Image Fallback Container -->
-                            <img id="customLogoImg" src="" class="hidden w-full h-full object-cover rounded-xl" alt="Custom Logo">
                         </div>
                     </div>
-                    
                     <div>
                         <div class="flex items-center justify-center sm:justify-start gap-2 mb-1.5 flex-wrap">
                             <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-950/90 border border-brand-800/80 text-brand-400 text-xs font-semibold">
@@ -205,8 +137,6 @@
                         </p>
                     </div>
                 </div>
-
-                <!-- Quick Action Header Buttons -->
                 <div class="flex items-center gap-3 w-full md:w-auto justify-center">
                     <button onclick="scrollToForm()" class="flex-1 md:flex-none px-5 py-3 rounded-xl bg-gradient-to-r from-brand-600 via-rose-600 to-brand-700 text-white font-extrabold text-sm hover:from-brand-500 hover:to-rose-600 transition duration-200 shadow-neon-red flex items-center justify-center gap-2">
                         <i class="fa-solid fa-user-plus"></i>
@@ -217,19 +147,15 @@
                         <span class="hidden sm:inline">Export CSV</span>
                     </button>
                 </div>
-
             </div>
         </div>
     </header>
 
-    <!-- MAIN CONTENT CONTAINER -->
+    <!-- MAIN CONTENT -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow space-y-8 w-full relative z-10">
-
-        <!-- STATISTIK DASHBOARD -->
+        <!-- STATISTIK -->
         <section class="grid grid-cols-2 lg:grid-cols-5 gap-4">
-            <!-- Total Anggota Card -->
-            <div class="col-span-2 lg:col-span-1 glass-card p-5 rounded-2xl border border-zinc-800/90 flex items-center justify-between relative overflow-hidden group">
-                <div class="absolute -right-4 -bottom-4 w-20 h-20 bg-brand-600/10 rounded-full blur-xl group-hover:bg-brand-600/20 transition duration-300"></div>
+            <div class="col-span-2 lg:col-span-1 glass-card p-5 rounded-2xl border border-zinc-800/90 flex items-center justify-between relative overflow-hidden">
                 <div>
                     <p class="text-xs text-zinc-400 font-bold tracking-wider uppercase">Total Pemuda/i</p>
                     <h3 id="statTotal" class="text-3xl font-black text-white mt-1">0</h3>
@@ -239,86 +165,44 @@
                     <i class="fa-solid fa-id-card"></i>
                 </div>
             </div>
-
-            <!-- Sektor 01 Stats -->
             <div class="glass-card p-4 rounded-2xl border border-zinc-800/90 flex flex-col justify-between">
-                <div class="flex justify-between items-start">
-                    <span class="text-xs text-zinc-400 font-bold uppercase">Sektor 01</span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-glow"></span>
-                </div>
-                <div class="mt-3">
-                    <span id="statSek1" class="text-2xl font-extrabold text-white">0</span>
-                    <span class="text-xs text-zinc-500 ml-1">Jiwa</span>
-                </div>
+                <span class="text-xs text-zinc-400 font-bold uppercase">Sektor 01</span>
+                <div class="mt-3"><span id="statSek1" class="text-2xl font-extrabold text-white">0</span> <span class="text-xs text-zinc-500">Jiwa</span></div>
             </div>
-
-            <!-- Sektor 02 Stats -->
             <div class="glass-card p-4 rounded-2xl border border-zinc-800/90 flex flex-col justify-between">
-                <div class="flex justify-between items-start">
-                    <span class="text-xs text-zinc-400 font-bold uppercase">Sektor 02</span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-glow"></span>
-                </div>
-                <div class="mt-3">
-                    <span id="statSek2" class="text-2xl font-extrabold text-white">0</span>
-                    <span class="text-xs text-zinc-500 ml-1">Jiwa</span>
-                </div>
+                <span class="text-xs text-zinc-400 font-bold uppercase">Sektor 02</span>
+                <div class="mt-3"><span id="statSek2" class="text-2xl font-extrabold text-white">0</span> <span class="text-xs text-zinc-500">Jiwa</span></div>
             </div>
-
-            <!-- Sektor 03 Stats -->
             <div class="glass-card p-4 rounded-2xl border border-zinc-800/90 flex flex-col justify-between">
-                <div class="flex justify-between items-start">
-                    <span class="text-xs text-zinc-400 font-bold uppercase">Sektor 03</span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-glow"></span>
-                </div>
-                <div class="mt-3">
-                    <span id="statSek3" class="text-2xl font-extrabold text-white">0</span>
-                    <span class="text-xs text-zinc-500 ml-1">Jiwa</span>
-                </div>
+                <span class="text-xs text-zinc-400 font-bold uppercase">Sektor 03</span>
+                <div class="mt-3"><span id="statSek3" class="text-2xl font-extrabold text-white">0</span> <span class="text-xs text-zinc-500">Jiwa</span></div>
             </div>
-
-            <!-- Sektor 04 Stats -->
             <div class="glass-card p-4 rounded-2xl border border-zinc-800/90 flex flex-col justify-between">
-                <div class="flex justify-between items-start">
-                    <span class="text-xs text-zinc-400 font-bold uppercase">Sektor 04</span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-glow"></span>
-                </div>
-                <div class="mt-3">
-                    <span id="statSek4" class="text-2xl font-extrabold text-white">0</span>
-                    <span class="text-xs text-zinc-500 ml-1">Jiwa</span>
-                </div>
+                <span class="text-xs text-zinc-400 font-bold uppercase">Sektor 04</span>
+                <div class="mt-3"><span id="statSek4" class="text-2xl font-extrabold text-white">0</span> <span class="text-xs text-zinc-500">Jiwa</span></div>
             </div>
         </section>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-
-            <!-- FORM INPUT ANGGOTA (LG: 5 COLUMNS) -->
+            <!-- FORM INPUT -->
             <section id="formSection" class="lg:col-span-5 glass-card rounded-3xl border border-zinc-800/90 p-6 sm:p-8 relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-36 h-36 bg-brand-600/10 rounded-full blur-3xl pointer-events-none"></div>
-
                 <div class="flex items-center justify-between mb-6 pb-4 border-b border-zinc-800/80">
                     <div>
                         <h2 id="formTitle" class="text-xl font-black text-white flex items-center gap-2">
-                            <i class="fa-solid fa-user-plus text-brand-500"></i>
-                            Pendataan Anggota Baru
+                            <i class="fa-solid fa-user-plus text-brand-500"></i> Pendataan Anggota Baru
                         </h2>
                         <p class="text-xs text-zinc-400 mt-1">Isi formulir anggota Karang Taruna Pandawa 5</p>
                     </div>
-                    <button id="cancelEditBtn" onclick="resetForm()" class="hidden px-2.5 py-1 text-xs bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded-lg transition">
-                        Batal Edit
-                    </button>
+                    <button id="cancelEditBtn" onclick="resetForm()" class="hidden px-2.5 py-1 text-xs bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded-lg transition">Batal Edit</button>
                 </div>
 
                 <form id="memberForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
                     <input type="hidden" id="memberId" value="">
 
-                    <!-- Selfie Camera / File Upload -->
+                    <!-- Foto -->
                     <div class="space-y-2">
-                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">
-                            Foto Selfie Anggota <span class="text-brand-500">*</span>
-                        </label>
-                        
+                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Foto Selfie Anggota <span class="text-brand-500">*</span></label>
                         <div class="flex flex-col sm:flex-row items-center gap-4 bg-zinc-950/80 p-4 rounded-2xl border border-zinc-800">
-                            <!-- Preview Box -->
                             <div class="relative w-24 h-24 rounded-2xl bg-zinc-900 border-2 border-dashed border-zinc-700 flex items-center justify-center overflow-hidden flex-shrink-0 group">
                                 <img id="photoPreview" src="" class="hidden w-full h-full object-cover rounded-xl" alt="Preview Foto">
                                 <div id="photoPlaceholder" class="text-center p-2">
@@ -326,121 +210,60 @@
                                     <span class="block text-[10px] text-zinc-500 mt-1">Preview</span>
                                 </div>
                             </div>
-
-                            <!-- Capture / Upload Buttons -->
                             <div class="flex-grow w-full space-y-2">
                                 <div class="grid grid-cols-2 gap-2">
-                                    <button type="button" onclick="openCameraModal()" class="w-full px-3 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-700 hover:border-brand-500 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition">
-                                        <i class="fa-solid fa-video text-brand-500"></i>
-                                        Kamera Selfie
+                                    <button type="button" onclick="openCameraModal()" class="w-full px-3 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-700 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition">
+                                        <i class="fa-solid fa-video text-brand-500"></i> Kamera
                                     </button>
-                                    <label class="w-full px-3 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-700 hover:border-brand-500 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition cursor-pointer text-center">
-                                        <i class="fa-solid fa-upload text-blue-400"></i>
-                                        Upload File
+                                    <label class="w-full px-3 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-700 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition cursor-pointer text-center">
+                                        <i class="fa-solid fa-upload text-blue-400"></i> Upload
                                         <input type="file" id="photoFileInput" accept="image/*" onchange="handleFileUpload(event)" class="hidden">
                                     </label>
                                 </div>
-                                <p class="text-[11px] text-zinc-500 leading-tight">Ambil selfie langsung via webcam/HP atau unggah foto dari file galeri.</p>
-                                <input type="hidden" id="photoBase64" required>
+                                <input type="hidden" id="photoBase64">
                             </div>
                         </div>
                     </div>
 
                     <!-- Nama Lengkap -->
                     <div class="space-y-1.5">
-                        <label for="fullName" class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">
-                            Nama Lengkap <span class="text-brand-500">*</span>
-                        </label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-zinc-500">
-                                <i class="fa-solid fa-user"></i>
-                            </div>
-                            <input type="text" id="fullName" required placeholder="Contoh: Budi Santoso" 
-                                class="w-full pl-10 pr-4 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition">
-                        </div>
+                        <label for="fullName" class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Nama Lengkap <span class="text-brand-500">*</span></label>
+                        <input type="text" id="fullName" required placeholder="Contoh: Budi Santoso" class="w-full px-4 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-brand-500 transition">
                     </div>
 
-                    <!-- Tanggal Lahir Cepat & Hitung Umur -->
+                    <!-- Tanggal Lahir -->
                     <div class="space-y-2">
                         <div class="flex justify-between items-center">
-                            <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">
-                                Tanggal Lahir <span class="text-brand-500">*</span>
-                            </label>
-                            <span id="ageIndicator" class="text-xs font-bold text-brand-400 hidden bg-brand-950/90 px-2.5 py-0.5 rounded-md border border-brand-800 shadow-glow">
-                                0 Tahun
-                            </span>
+                            <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Tanggal Lahir <span class="text-brand-500">*</span></label>
+                            <span id="ageIndicator" class="text-xs font-bold text-brand-400 hidden bg-brand-950/90 px-2.5 py-0.5 rounded-md border border-brand-800 shadow-glow">0 Tahun</span>
                         </div>
-
-                        <!-- Dropdown Tiga Bagian (Tgl, Bln, Thn) -->
                         <div class="grid grid-cols-3 gap-2">
-                            <!-- Dropdown Tanggal -->
-                            <div class="relative">
-                                <select id="dobDay" onchange="onDropdownDateChange()" class="w-full px-3 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-xs text-white focus:outline-none focus:border-brand-500 transition appearance-none">
-                                    <option value="" disabled selected>Tgl</option>
-                                </select>
-                                <div class="absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none text-zinc-500">
-                                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
-                                </div>
-                            </div>
-                            <!-- Dropdown Bulan -->
-                            <div class="relative">
-                                <select id="dobMonth" onchange="onDropdownDateChange()" class="w-full px-3 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-xs text-white focus:outline-none focus:border-brand-500 transition appearance-none">
-                                    <option value="" disabled selected>Bulan</option>
-                                    <option value="01">Januari</option>
-                                    <option value="02">Februari</option>
-                                    <option value="03">Maret</option>
-                                    <option value="04">April</option>
-                                    <option value="05">Mei</option>
-                                    <option value="06">Juni</option>
-                                    <option value="07">Juli</option>
-                                    <option value="08">Agustus</option>
-                                    <option value="09">September</option>
-                                    <option value="10">Oktober</option>
-                                    <option value="11">November</option>
-                                    <option value="12">Desember</option>
-                                </select>
-                                <div class="absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none text-zinc-500">
-                                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
-                                </div>
-                            </div>
-                            <!-- Dropdown Tahun -->
-                            <div class="relative">
-                                <select id="dobYear" onchange="onDropdownDateChange()" class="w-full px-3 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-xs text-white focus:outline-none focus:border-brand-500 transition appearance-none">
-                                    <option value="" disabled selected>Tahun</option>
-                                </select>
-                                <div class="absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none text-zinc-500">
-                                    <i class="fa-solid fa-chevron-down text-[10px]"></i>
-                                </div>
-                            </div>
+                            <select id="dobDay" onchange="onDropdownDateChange()" class="px-3 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-xs text-white focus:outline-none focus:border-brand-500"><option value="" disabled selected>Tgl</option></select>
+                            <select id="dobMonth" onchange="onDropdownDateChange()" class="px-3 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-xs text-white focus:outline-none focus:border-brand-500">
+                                <option value="" disabled selected>Bulan</option>
+                                <option value="01">Januari</option><option value="02">Februari</option><option value="03">Maret</option>
+                                <option value="04">April</option><option value="05">Mei</option><option value="06">Juni</option>
+                                <option value="07">Juli</option><option value="08">Agustus</option><option value="09">September</option>
+                                <option value="10">Oktober</option><option value="11">November</option><option value="12">Desember</option>
+                            </select>
+                            <select id="dobYear" onchange="onDropdownDateChange()" class="px-3 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-xs text-white focus:outline-none focus:border-brand-500"><option value="" disabled selected>Tahun</option></select>
                         </div>
-
-                        <!-- Alternatif Ketik Cepat / Kalender Standar -->
                         <div class="pt-1 flex items-center gap-2">
-                            <div class="relative flex-grow">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-zinc-500">
-                                    <i class="fa-solid fa-keyboard text-xs"></i>
-                                </div>
-                                <input type="text" id="quickDateText" oninput="parseQuickDateText()" placeholder="Ketik cepat: 25/08/2002..." 
-                                    class="w-full pl-8 pr-3 py-1.5 bg-zinc-950/50 border border-zinc-800/80 rounded-lg text-xs text-zinc-300 placeholder-zinc-600 focus:outline-none focus:border-brand-500 transition">
-                            </div>
-                            <input type="date" id="birthDate" required onchange="onNativeDateChange()" class="w-8 py-1.5 bg-zinc-900 border border-zinc-800 rounded-lg text-xs text-zinc-400 cursor-pointer text-center" title="Pilih via Kalender Native">
+                            <input type="text" id="quickDateText" oninput="parseQuickDateText()" placeholder="Ketik cepat: 25/08/2002..." class="w-full px-3 py-1.5 bg-zinc-950/50 border border-zinc-800 rounded-lg text-xs text-zinc-300">
+                            <input type="date" id="birthDate" onchange="onNativeDateChange()" class="w-8 py-1.5 bg-zinc-900 border border-zinc-800 rounded-lg text-xs text-zinc-400 cursor-pointer text-center">
                         </div>
                     </div>
 
                     <!-- Jenis Kelamin -->
                     <div class="space-y-1.5">
-                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">
-                            Jenis Kelamin <span class="text-brand-500">*</span>
-                        </label>
+                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Jenis Kelamin <span class="text-brand-500">*</span></label>
                         <div class="grid grid-cols-2 gap-3">
-                            <label class="flex items-center justify-center gap-2 p-2.5 rounded-xl border border-zinc-800 bg-zinc-950/50 cursor-pointer hover:border-zinc-700 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-950/40 transition">
+                            <label class="flex items-center justify-center gap-2 p-2.5 rounded-xl border border-zinc-800 bg-zinc-950/50 cursor-pointer">
                                 <input type="radio" name="gender" value="Laki-laki" required class="accent-brand-500">
-                                <i class="fa-solid fa-mars text-blue-400"></i>
                                 <span class="text-xs font-semibold text-zinc-200">Laki-laki</span>
                             </label>
-                            <label class="flex items-center justify-center gap-2 p-2.5 rounded-xl border border-zinc-800 bg-zinc-950/50 cursor-pointer hover:border-zinc-700 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-950/40 transition">
+                            <label class="flex items-center justify-center gap-2 p-2.5 rounded-xl border border-zinc-800 bg-zinc-950/50 cursor-pointer">
                                 <input type="radio" name="gender" value="Perempuan" required class="accent-brand-500">
-                                <i class="fa-solid fa-venus text-pink-400"></i>
                                 <span class="text-xs font-semibold text-zinc-200">Perempuan</span>
                             </label>
                         </div>
@@ -448,331 +271,193 @@
 
                     <!-- Pekerjaan -->
                     <div class="space-y-1.5">
-                        <label for="job" class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">
-                            Pekerjaan / Kegiatan <span class="text-brand-500">*</span>
-                        </label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-zinc-500">
-                                <i class="fa-solid fa-briefcase"></i>
-                            </div>
-                            <select id="job" required onchange="checkCustomJob()"
-                                class="w-full pl-10 pr-8 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition appearance-none">
-                                <option value="" disabled selected>Pilih Pekerjaan...</option>
-                                <option value="Pelajar / Mahasiswa">Pelajar / Mahasiswa</option>
-                                <option value="Karyawan Swasta">Karyawan Swasta</option>
-                                <option value="Wiraswasta / Usaha">Wiraswasta / Usaha</option>
-                                <option value="Pegawai Negeri (PNS)">Pegawai Negeri (PNS)</option>
-                                <option value="Freelancer / Kreatif">Freelancer / Kreatif</option>
-                                <option value="Belum Bekerja">Belum Bekerja</option>
-                                <option value="Lainnya">Pekerjaan Lainnya...</option>
+                        <label for="job" class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Pekerjaan / Kegiatan <span class="text-brand-500">*</span></label>
+                        <select id="job" required onchange="checkCustomJob()" class="w-full px-4 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-brand-500">
+                            <option value="" disabled selected>Pilih Pekerjaan...</option>
+                            <option value="Pelajar / Mahasiswa">Pelajar / Mahasiswa</option>
+                            <option value="Karyawan Swasta">Karyawan Swasta</option>
+                            <option value="Wiraswasta / Usaha">Wiraswasta / Usaha</option>
+                            <option value="Pegawai Negeri (PNS)">Pegawai Negeri (PNS)</option>
+                            <option value="Freelancer / Kreatif">Freelancer / Kreatif</option>
+                            <option value="Belum Bekerja">Belum Bekerja</option>
+                            <option value="Lainnya">Pekerjaan Lainnya...</option>
+                        </select>
+                        <input type="text" id="customJobInput" placeholder="Sebutkan pekerjaan..." class="hidden w-full mt-2 px-4 py-2 bg-zinc-950/80 border border-zinc-800 rounded-xl text-xs text-white">
+                    </div>
+
+                    <!-- Sektor & RT/RW -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="space-y-1.5">
+                            <label for="sector" class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Sektor Wilayah <span class="text-brand-500">*</span></label>
+                            <select id="sector" required class="w-full px-3 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-xs text-white focus:outline-none focus:border-brand-500">
+                                <option value="" disabled selected>Pilih Sektor...</option>
+                                <option value="Sektor 01">Sektor 01</option>
+                                <option value="Sektor 02">Sektor 02</option>
+                                <option value="Sektor 03">Sektor 03</option>
+                                <option value="Sektor 04">Sektor 04</option>
                             </select>
-                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-zinc-500">
-                                <i class="fa-solid fa-chevron-down text-xs"></i>
-                            </div>
                         </div>
-                        <input type="text" id="customJobInput" placeholder="Ketik pekerjaan spesifik..." 
-                            class="hidden w-full mt-2 px-4 py-2 bg-zinc-950 border border-zinc-700 rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-brand-500">
-                    </div>
-
-                    <!-- Alamat Sektor Sawahan 5 -->
-                    <div class="space-y-1.5">
-                        <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">
-                            Alamat Sektor Sawahan 5 <span class="text-brand-500">*</span>
-                        </label>
-                        <div class="grid grid-cols-2 gap-2.5">
-                            <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-zinc-800 bg-zinc-950/50 cursor-pointer hover:border-zinc-700 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-950/40 transition">
-                                <input type="radio" name="sector" value="Sektor 01" required class="accent-brand-500">
-                                <div class="text-xs">
-                                    <div class="font-bold text-white">Sektor 01</div>
-                                    <div class="text-[10px] text-zinc-500">Sawahan 5</div>
-                                </div>
-                            </label>
-                            <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-zinc-800 bg-zinc-950/50 cursor-pointer hover:border-zinc-700 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-950/40 transition">
-                                <input type="radio" name="sector" value="Sektor 02" required class="accent-brand-500">
-                                <div class="text-xs">
-                                    <div class="font-bold text-white">Sektor 02</div>
-                                    <div class="text-[10px] text-zinc-500">Sawahan 5</div>
-                                </div>
-                            </label>
-                            <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-zinc-800 bg-zinc-950/50 cursor-pointer hover:border-zinc-700 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-950/40 transition">
-                                <input type="radio" name="sector" value="Sektor 03" required class="accent-brand-500">
-                                <div class="text-xs">
-                                    <div class="font-bold text-white">Sektor 03</div>
-                                    <div class="text-[10px] text-zinc-500">Sawahan 5</div>
-                                </div>
-                            </label>
-                            <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-zinc-800 bg-zinc-950/50 cursor-pointer hover:border-zinc-700 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-950/40 transition">
-                                <input type="radio" name="sector" value="Sektor 04" required class="accent-brand-500">
-                                <div class="text-xs">
-                                    <div class="font-bold text-white">Sektor 04</div>
-                                    <div class="text-[10px] text-zinc-500">Sawahan 5</div>
-                                </div>
-                            </label>
+                        <div class="space-y-1.5">
+                            <label for="rtRw" class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">RT / RW</label>
+                            <input type="text" id="rtRw" placeholder="Contoh: RT 02 / RW 05" class="w-full px-3 py-2.5 bg-zinc-950/80 border border-zinc-800 rounded-xl text-xs text-white focus:outline-none focus:border-brand-500">
                         </div>
                     </div>
 
-                    <!-- Submit Button -->
-                    <div class="pt-2">
-                        <button type="submit" id="submitBtn" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-brand-600 via-rose-600 to-brand-700 text-white font-black text-sm hover:brightness-110 active:scale-[0.99] transition duration-200 shadow-neon-red flex items-center justify-center gap-2 group">
-                            <i class="fa-solid fa-paper-plane text-base group-hover:translate-x-1 transition duration-200"></i>
-                            <span id="submitBtnText">Simpan Data Pemuda</span>
-                        </button>
-                    </div>
-
+                    <button type="submit" id="submitBtn" class="w-full py-3.5 bg-gradient-to-r from-brand-600 to-rose-600 hover:from-brand-500 hover:to-rose-500 text-white font-extrabold text-sm rounded-xl shadow-neon-red transition duration-200">
+                        Simpan Data Pemuda
+                    </button>
                 </form>
             </section>
 
-            <!-- DASHBOARD DAFTAR ANGGOTA (LG: 7 COLUMNS) -->
+            <!-- TABEL / DAFTAR ANGGOTA (LG: 7 COLUMNS) -->
             <section class="lg:col-span-7 space-y-4">
-                
-                <!-- Search and Filter Bar -->
-                <div class="glass-card p-4 rounded-2xl border border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-3">
-                    <!-- Search Input -->
+                <div class="glass-card p-4 rounded-2xl border border-zinc-800/90 flex flex-col sm:flex-row gap-3 items-center justify-between">
                     <div class="relative w-full sm:w-64">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-xs"></i>
-                        <input type="text" id="searchInput" oninput="renderMembers()" placeholder="Cari nama atau pekerjaan..." 
-                            class="w-full pl-9 pr-3 py-2 bg-zinc-950 border border-zinc-800 rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-brand-500">
+                        <input type="text" id="searchInput" oninput="renderTable()" placeholder="Cari nama atau pekerjaan..." class="w-full pl-9 pr-4 py-2 bg-zinc-950/80 border border-zinc-800 rounded-xl text-xs text-white">
+                        <i class="fa-solid fa-search absolute left-3 top-2.5 text-zinc-500 text-xs"></i>
                     </div>
-
-                    <!-- Sector Filter & View Toggle -->
-                    <div class="flex items-center gap-2 w-full sm:w-auto">
-                        <select id="filterSector" onchange="renderMembers()" class="w-full sm:w-auto px-3 py-2 bg-zinc-950 border border-zinc-800 rounded-xl text-xs text-zinc-300 focus:outline-none focus:border-brand-500">
-                            <option value="ALL">Semua Sektor</option>
-                            <option value="Sektor 01">Sektor 01</option>
-                            <option value="Sektor 02">Sektor 02</option>
-                            <option value="Sektor 03">Sektor 03</option>
-                            <option value="Sektor 04">Sektor 04</option>
-                        </select>
-                        <button onclick="toggleViewMode('grid')" id="viewGridBtn" class="p-2 bg-brand-900/50 border border-brand-700 text-brand-400 rounded-xl text-xs hover:bg-zinc-800">
-                            <i class="fa-solid fa-grid-2"></i>
-                        </button>
-                        <button onclick="toggleViewMode('table')" id="viewTableBtn" class="p-2 bg-zinc-950 border border-zinc-800 text-zinc-400 rounded-xl text-xs hover:bg-zinc-800">
-                            <i class="fa-solid fa-list"></i>
-                        </button>
-                    </div>
+                    <select id="filterSector" onchange="renderTable()" class="w-full sm:w-auto px-3 py-2 bg-zinc-950/80 border border-zinc-800 rounded-xl text-xs text-white">
+                        <option value="ALL">Semua Sektor</option>
+                        <option value="Sektor 01">Sektor 01</option>
+                        <option value="Sektor 02">Sektor 02</option>
+                        <option value="Sektor 03">Sektor 03</option>
+                        <option value="Sektor 04">Sektor 04</option>
+                    </select>
                 </div>
 
-                <!-- CARDS GRID VIEW -->
-                <div id="cardsContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <!-- Cards populated dynamically -->
-                </div>
-
-                <!-- TABLE VIEW -->
-                <div id="tableContainer" class="hidden glass-card rounded-2xl border border-zinc-800 overflow-hidden">
+                <!-- Table Container -->
+                <div class="glass-card rounded-3xl border border-zinc-800/90 overflow-hidden">
                     <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse text-xs">
-                            <thead>
-                                <tr class="bg-zinc-950/80 border-b border-zinc-800 text-zinc-400 font-bold uppercase tracking-wider">
-                                    <th class="p-3.5">Anggota</th>
-                                    <th class="p-3.5">Gender / Umur</th>
-                                    <th class="p-3.5">Sektor</th>
-                                    <th class="p-3.5">Pekerjaan</th>
-                                    <th class="p-3.5 text-right">Aksi</th>
+                        <table class="w-full text-left text-xs text-zinc-300">
+                            <thead class="bg-zinc-950/90 text-zinc-400 uppercase font-bold border-b border-zinc-800">
+                                <tr>
+                                    <th class="p-4">Anggota</th>
+                                    <th class="p-4">Umur</th>
+                                    <th class="p-4">Sektor / RT</th>
+                                    <th class="p-4">Pekerjaan</th>
+                                    <th class="p-4 text-center">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody id="tableBody" class="divide-y divide-zinc-800/60">
-                                <!-- Table rows populated dynamically -->
+                            <tbody id="memberTableBody" class="divide-y divide-zinc-800/60">
+                                <!-- Dynamic Render -->
                             </tbody>
                         </table>
                     </div>
                 </div>
-
-                <!-- Empty State -->
-                <div id="emptyState" class="hidden glass-card rounded-2xl p-12 text-center border border-zinc-800/80">
-                    <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-zinc-900 flex items-center justify-center text-zinc-600 text-2xl">
-                        <i class="fa-solid fa-user-slash"></i>
-                    </div>
-                    <h3 class="text-base font-bold text-white">Tidak Ada Data Anggota</h3>
-                    <p class="text-xs text-zinc-400 mt-1">Belum ada pemuda terdaftar yang sesuai pencarian/filter.</p>
-                </div>
-
             </section>
         </div>
-
     </main>
 
     <!-- FOOTER -->
-    <footer class="border-t border-zinc-900 bg-zinc-950 py-6 text-center text-xs text-zinc-500 mt-12 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p>&copy; 2026 Karang Taruna Pandu Muda Sawahan 5 - Pandawa Lima.</p>
-            <p class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                Sistem Informasi Pendataan Pemuda Active
-            </p>
-        </div>
+    <footer class="border-t border-zinc-800/80 bg-zinc-950 py-6 text-center text-xs text-zinc-500 relative z-10 mt-12">
+        <p>&copy; 2026 Karang Taruna Pandawa Lima - Padukuhan Sawahan 5.</p>
     </footer>
 
-    <!-- MODAL CUSTOM LOGO OVERLAY -->
-    <div id="logoModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-zinc-950 border border-zinc-800 rounded-3xl max-w-md w-full p-6 space-y-5 relative shadow-2xl">
-            <div class="flex justify-between items-center pb-3 border-b border-zinc-800">
-                <h3 class="text-base font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-shield-halved text-brand-500"></i> Logo Karang Taruna Pandawa 5
-                </h3>
-                <button onclick="closeLogoModal()" class="text-zinc-400 hover:text-white text-lg">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
+    <!-- MODAL KAMERA -->
+    <div id="cameraModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl max-w-md w-full p-5 space-y-4">
+            <h3 class="text-base font-bold text-white flex items-center gap-2"><i class="fa-solid fa-camera text-brand-500"></i> Ambil Foto Selfie</h3>
+            <div class="relative aspect-video bg-black rounded-xl overflow-hidden">
+                <video id="webcam" autoplay playsinline class="w-full h-full object-cover"></video>
+                <canvas id="canvas" class="hidden"></canvas>
             </div>
-
-            <!-- Preview Official Logo Frame -->
-            <div class="flex flex-col items-center justify-center my-2 space-y-3">
-                <div class="w-36 h-36 rounded-2xl bg-white border-2 border-brand-500 p-2 flex items-center justify-center shadow-neon-red">
-                    <svg viewBox="0 0 500 500" class="w-full h-full object-contain">
-                        <circle cx="250" cy="250" r="240" fill="#ffffff" />
-                        <path fill="none" d="M 70,250 A 180,180 0 0,1 430,250" id="textArcModal" />
-                        <text font-family="Inter, sans-serif" font-weight="900" font-size="30" fill="#000000" letter-spacing="2">
-                            <textPath href="#textArcModal" startOffset="50%" text-anchor="middle">PANDU MUDA SAWAHAN 5</textPath>
-                        </text>
-                        <path d="M 230,230 C 180,70 120,40 50,20 C 70,100 80,160 85,220 C 65,260 60,300 75,340 C 90,290 120,250 160,235 C 130,270 110,320 120,380 C 145,330 175,280 230,230 Z" fill="#e11d48"/>
-                        <path d="M 270,230 C 320,70 380,40 450,20 C 430,100 420,160 415,220 C 435,260 440,300 425,340 C 410,290 380,250 340,235 C 370,270 390,320 380,380 C 355,330 325,280 270,230 Z" fill="#e11d48"/>
-                        <path d="M 250,140 C 310,140 350,180 350,240 C 350,300 310,340 250,340 C 190,340 150,300 150,240 C 150,180 190,140 250,140 Z" fill="#fbbf24" stroke="#000" stroke-width="4"/>
-                        <circle cx="250" cy="240" r="85" fill="#be123c"/>
-                        <g transform="translate(250, 240) scale(0.9)">
-                            <path d="M 0,-35 C 15,-15 20,10 0,25 C -20,10 -15,-15 0,-35 Z" fill="#ffffff" stroke="#e11d48" stroke-width="2"/>
-                            <path d="M -10,-25 C 10,-10 25,15 -10,30 C -25,10 -10,-10 -10,-25 Z" fill="#ffffff" stroke="#e11d48" stroke-width="2"/>
-                            <path d="M 10,-25 C -10,-10 -25,15 10,30 C 25,10 10,-10 10,-25 Z" fill="#ffffff" stroke="#e11d48" stroke-width="2"/>
-                        </g>
-                        <path d="M 100,410 L 150,380 L 350,380 L 400,410 L 380,450 L 120,450 Z" fill="#e11d48"/>
-                        <text x="250" y="430" font-family="Inter, sans-serif" font-weight="900" font-size="28" fill="#ffffff" text-anchor="middle">PANDAWA LIMA</text>
-                    </svg>
-                </div>
-                <p class="text-xs text-zinc-400 text-center font-semibold">Logo Resmi Karang Taruna Pandu Muda Sawahan 5 (Pandawa Lima)</p>
-            </div>
-
-            <!-- Upload File Option if custom photo replacement is desired -->
-            <div class="space-y-2">
-                <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider">Unggah Gambar Logo Alternatif</label>
-                <label class="w-full py-2.5 px-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-brand-500 text-zinc-200 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 cursor-pointer transition">
-                    <i class="fa-solid fa-cloud-arrow-up text-brand-500"></i> Pilih File Logo dari HP / PC
-                    <input type="file" accept="image/*" onchange="handleLogoFileUpload(event)" class="hidden">
-                </label>
-            </div>
-
-            <div class="flex gap-2 pt-3 border-t border-zinc-800">
-                <button onclick="resetToDefaultLogo()" class="flex-1 py-2.5 bg-zinc-900 hover:bg-rose-950/40 text-rose-400 border border-zinc-800 text-xs font-bold rounded-xl transition">
-                    <i class="fa-solid fa-rotate-left mr-1"></i> Gunakan Logo Resmi SVG
-                </button>
-                <button onclick="closeLogoModal()" class="flex-1 py-2.5 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-xl text-xs shadow-neon-red transition">
-                    Selesai
-                </button>
+            <div class="flex gap-2">
+                <button onclick="takeSnapshot()" class="flex-1 py-2.5 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs rounded-xl">Tangkap Foto</button>
+                <button onclick="closeCameraModal()" class="px-4 py-2.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-bold text-xs rounded-xl">Tutup</button>
             </div>
         </div>
     </div>
 
-    <!-- MODAL WEBCAM CAMERA SELFIE -->
-    <div id="cameraModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-zinc-950 border border-zinc-800 rounded-3xl max-w-md w-full p-6 space-y-4 relative shadow-2xl">
-            <div class="flex justify-between items-center pb-2 border-b border-zinc-800">
-                <h3 class="text-base font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-camera text-brand-500"></i> Ambil Foto Selfie
-                </h3>
-                <button onclick="closeCameraModal()" class="text-zinc-400 hover:text-white text-lg">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-
-            <!-- Video Frame Container -->
-            <div class="relative w-full aspect-square bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 flex items-center justify-center">
-                <video id="webcamVideo" autoplay playsinline class="w-full h-full object-cover transform -scale-x-100"></video>
-                <canvas id="webcamCanvas" class="hidden"></canvas>
-                <!-- Camera Overlay Circle Guidance -->
-                <div class="absolute border-2 border-dashed border-brand-500/60 rounded-full w-48 h-48 pointer-events-none"></div>
-            </div>
-
-            <div class="flex gap-3">
-                <button onclick="closeCameraModal()" class="flex-1 py-2.5 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 font-semibold rounded-xl text-xs transition">
-                    Batal
-                </button>
-                <button onclick="takeSnapshot()" class="flex-1 py-2.5 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-xl text-xs shadow-neon-red flex items-center justify-center gap-2 transition">
-                    <i class="fa-solid fa-circle-dot"></i>
-                    Jepret Selfie
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL DETAIL ANGGOTA -->
-    <div id="detailModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-zinc-950 border border-zinc-800 rounded-3xl max-w-md w-full p-6 space-y-6 relative shadow-2xl overflow-hidden">
-            <div class="absolute -right-10 -top-10 w-36 h-36 bg-brand-600/20 rounded-full blur-2xl"></div>
-
-            <div class="flex justify-between items-start relative z-10">
-                <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-950 text-brand-400 border border-brand-800 rounded-full text-xs font-semibold">
-                    <i class="fa-solid fa-shield-halved"></i> Kartu Pemuda Pandawa 5
-                </div>
-                <button onclick="closeDetailModal()" class="text-zinc-400 hover:text-white text-lg">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-
-            <div class="text-center space-y-3 relative z-10">
-                <img id="detailPhoto" src="" class="w-28 h-28 rounded-2xl mx-auto object-cover border-2 border-brand-500 shadow-neon-red" alt="Selfie">
-                <div>
-                    <h2 id="detailName" class="text-xl font-black text-white"></h2>
-                    <p id="detailJob" class="text-xs text-brand-400 font-semibold mt-0.5"></p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-2 gap-3 text-xs relative z-10 bg-zinc-900/80 p-4 rounded-2xl border border-zinc-800/80">
-                <div>
-                    <span class="text-zinc-500 block text-[10px] uppercase font-semibold">Alamat Sektor</span>
-                    <span id="detailSector" class="font-bold text-zinc-200"></span>
-                </div>
-                <div>
-                    <span class="text-zinc-500 block text-[10px] uppercase font-semibold">Jenis Kelamin</span>
-                    <span id="detailGender" class="font-bold text-zinc-200"></span>
-                </div>
-                <div>
-                    <span class="text-zinc-500 block text-[10px] uppercase font-semibold">Tanggal Lahir</span>
-                    <span id="detailBirthDate" class="font-bold text-zinc-200"></span>
-                </div>
-                <div>
-                    <span class="text-zinc-500 block text-[10px] uppercase font-semibold">Usia Pemuda</span>
-                    <span id="detailAge" class="font-bold text-brand-400"></span>
-                </div>
-            </div>
-
-            <div class="flex gap-2 relative z-10">
-                <button id="modalEditBtn" class="flex-1 py-2.5 bg-zinc-900 border border-zinc-700 hover:border-brand-500 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition">
-                    <i class="fa-solid fa-pen-to-square text-amber-400"></i> Edit Data
-                </button>
-                <button onclick="closeDetailModal()" class="flex-1 py-2.5 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-xl text-xs transition">
-                    Tutup
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- SCRIPT UTAMA INTEGRASI GOOGLE APPS SCRIPT -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzcwmVN8b0LMaO7gaXQ9idzfwu3yQbR5T7FRyZvWwuOaY7BU8PtnG5y-9pK3fOmdXDR/exec';
-        const LOGO_STORAGE_KEY = 'KT_PANDU_MUDA_SAWAHAN5_CUSTOM_LOGO';
+        let members = JSON.parse(localStorage.getItem('kt_members')) || [];
+        let mediaStream = null;
 
-        let members = [];
-        let viewMode = 'grid';
-        let webcamStream = null;
-
-        window.onload = function() {
-            initDateDropdowns();
-            loadLogo();
-            fetchMembersFromSheet();
-        };
-
-        // INISIALISASI PENGISIAN TANGGAL LAHIR CEPAT
-        function initDateDropdowns() {
+        // Populate Years & Days Dropdown
+        document.addEventListener("DOMContentLoaded", () => {
             const daySelect = document.getElementById('dobDay');
-            const yearSelect = document.getElementById('dobYear');
-
-            // Isi Tanggal 1-31
-            for (let d = 1; d <= 31; d++) {
-                const val = d < 10 ? '0' + d : d.toString();
+            for (let i = 1; i <= 31; i++) {
+                const val = i < 10 ? '0' + i : i;
                 daySelect.innerHTML += `<option value="${val}">${val}</option>`;
             }
-
-            // Isi Tahun dari (Tahun Ini) mundur ke 1970
+            const yearSelect = document.getElementById('dobYear');
             const currentYear = new Date().getFullYear();
-            for (let y = currentYear; y >= 1970; y--) {
-                yearSelect.innerHTML += `<option value="${y}">${y}</option>`;
+            for (let i = currentYear; i >= 1950; i--) {
+                yearSelect.innerHTML += `<option value="${i}">${i}</option>`;
+            }
+            renderTable();
+        });
+
+        function scrollToForm() {
+            document.getElementById('formSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Camera Logic
+        async function openCameraModal() {
+            document.getElementById('cameraModal').classList.remove('hidden');
+            try {
+                mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
+                document.getElementById('webcam').srcObject = mediaStream;
+            } catch (err) {
+                alert("Tidak dapat mengakses kamera: " + err.message);
+                closeCameraModal();
+            }
+        }
+
+        function closeCameraModal() {
+            if (mediaStream) {
+                mediaStream.getTracks().forEach(track => track.stop());
+            }
+            document.getElementById('cameraModal').classList.add('hidden');
+        }
+
+        function takeSnapshot() {
+            const video = document.getElementById('webcam');
+            const canvas = document.getElementById('canvas');
+            canvas.width = video.videoWidth || 300;
+            canvas.height = video.videoHeight || 300;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const dataUrl = canvas.toDataURL('image/png');
+            setPhoto(dataUrl);
+            closeCameraModal();
+        }
+
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => setPhoto(e.target.result);
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function setPhoto(base64) {
+            document.getElementById('photoBase64').value = base64;
+            document.getElementById('photoPreview').src = base64;
+            document.getElementById('photoPreview').classList.remove('hidden');
+            document.getElementById('photoPlaceholder').classList.add('hidden');
+        }
+
+        // Date Calculations & Form Inputs
+        function calculateAge(birthDateStr) {
+            if (!birthDateStr) return 0;
+            const birthDate = new Date(birthDateStr);
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) age--;
+            return age;
+        }
+
+        function updateAgeDisplay(dateStr) {
+            const age = calculateAge(dateStr);
+            const indicator = document.getElementById('ageIndicator');
+            if (age > 0) {
+                indicator.innerText = `${age} Tahun`;
+                indicator.classList.remove('hidden');
+            } else {
+                indicator.classList.add('hidden');
             }
         }
 
@@ -780,269 +465,39 @@
             const d = document.getElementById('dobDay').value;
             const m = document.getElementById('dobMonth').value;
             const y = document.getElementById('dobYear').value;
-
             if (d && m && y) {
-                const isoDate = `${y}-${m}-${d}`;
-                document.getElementById('birthDate').value = isoDate;
+                const dateStr = `${y}-${m}-${d}`;
+                document.getElementById('birthDate').value = dateStr;
                 document.getElementById('quickDateText').value = `${d}/${m}/${y}`;
-                updateAgeIndicator();
+                updateAgeDisplay(dateStr);
             }
         }
 
         function onNativeDateChange() {
-            const isoDate = document.getElementById('birthDate').value;
-            if (!isoDate) return;
-
-            const parts = isoDate.split('-'); // YYYY-MM-DD
-            if (parts.length === 3) {
-                document.getElementById('dobYear').value = parts[0];
-                document.getElementById('dobMonth').value = parts[1];
-                document.getElementById('dobDay').value = parts[2];
-                document.getElementById('quickDateText').value = `${parts[2]}/${parts[1]}/${parts[0]}`;
+            const val = document.getElementById('birthDate').value;
+            if (val) {
+                const [y, m, d] = val.split('-');
+                document.getElementById('dobDay').value = d;
+                document.getElementById('dobMonth').value = m;
+                document.getElementById('dobYear').value = y;
+                document.getElementById('quickDateText').value = `${d}/${m}/${y}`;
+                updateAgeDisplay(val);
             }
-            updateAgeIndicator();
         }
 
-        // Ketik Cepat Tanggal Parser (Mendukung 25/08/2002, 25-08-2002, atau 25082002)
         function parseQuickDateText() {
-            const raw = document.getElementById('quickDateText').value.trim();
-            if (!raw) return;
-
-            // Format DD/MM/YYYY atau DD-MM-YYYY
-            let match = raw.match(/^(\d{1,2})[\/\-\.\s](\d{1,2})[\/\-\.\s](\d{4})$/);
-            
-            // Format 8 digit tanpa pemisah (DDMMYYYY)
-            if (!match && raw.length === 8 && /^\d+$/.test(raw)) {
-                match = [raw, raw.substring(0,2), raw.substring(2,4), raw.substring(4,8)];
-            }
-
-            if (match) {
-                let day = parseInt(match[1], 10);
-                let month = parseInt(match[2], 10);
-                let year = parseInt(match[3], 10);
-
-                if (day >= 1 && day <= 31 && month >= 1 && month <= 12 && year >= 1970 && year <= new Date().getFullYear()) {
-                    const dStr = day < 10 ? '0' + day : day.toString();
-                    const mStr = month < 10 ? '0' + month : month.toString();
-
-                    document.getElementById('dobDay').value = dStr;
-                    document.getElementById('dobMonth').value = mStr;
-                    document.getElementById('dobYear').value = year.toString();
-                    document.getElementById('birthDate').value = `${year}-${mStr}-${dStr}`;
-                    updateAgeIndicator();
-                }
-            }
-        }
-
-        function setDateValues(isoDateStr) {
-            if (!isoDateStr) return;
-            document.getElementById('birthDate').value = isoDateStr;
-            const parts = isoDateStr.split('-');
-            if (parts.length === 3) {
-                document.getElementById('dobYear').value = parts[0];
-                document.getElementById('dobMonth').value = parts[1];
-                document.getElementById('dobDay').value = parts[2];
-                document.getElementById('quickDateText').value = `${parts[2]}/${parts[1]}/${parts[0]}`;
-            }
-            updateAgeIndicator();
-        }
-
-        // INTEGRASI API GOOGLE SHEETS
-        async function fetchMembersFromSheet() {
-            try {
-                const res = await fetch(`${GOOGLE_SCRIPT_URL}?action=read`);
-                const json = await res.json();
-                if (json.status === 'success') {
-                    members = json.data || [];
-                    renderMembers();
-                    updateStats();
-                }
-            } catch (err) {
-                console.error("Gagal membaca data dari Google Sheets:", err);
-            }
-        }
-
-        async function handleFormSubmit(event) {
-            event.preventDefault();
-            const submitBtn = document.getElementById('submitBtn');
-            const submitBtnText = document.getElementById('submitBtnText');
-            
-            submitBtn.disabled = true;
-            submitBtnText.innerText = "Menyimpan ke Sheet...";
-
-            const memberId = document.getElementById('memberId').value;
-            const fullName = document.getElementById('fullName').value.trim();
-            const birthDate = document.getElementById('birthDate').value;
-            const gender = document.querySelector('input[name="gender"]:checked')?.value;
-            
-            let job = document.getElementById('job').value;
-            if (job === 'Lainnya') {
-                job = document.getElementById('customJobInput').value.trim();
-            }
-
-            const sector = document.querySelector('input[name="sector"]:checked')?.value;
-            const photo = document.getElementById('photoBase64').value;
-
-            if (!birthDate) {
-                alert('Silakan lengkapi tanggal lahir terlebih dahulu!');
-                submitBtn.disabled = false;
-                submitBtnText.innerText = memberId ? 'Update Data Pemuda' : 'Simpan Data Pemuda';
-                return;
-            }
-
-            if (!photo) {
-                alert('Silakan jepret selfie atau upload foto terlebih dahulu!');
-                submitBtn.disabled = false;
-                submitBtnText.innerText = memberId ? 'Update Data Pemuda' : 'Simpan Data Pemuda';
-                return;
-            }
-
-            const isEdit = Boolean(memberId);
-            const payload = {
-                id: isEdit ? memberId : Date.now().toString(),
-                fullName,
-                birthDate,
-                gender,
-                job,
-                sector,
-                photo,
-                createdAt: new Date().toISOString()
-            };
-
-            const actionType = isEdit ? 'update' : 'create';
-
-            try {
-                await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: actionType, payload: payload })
-                });
-
-                setTimeout(() => {
-                    fetchMembersFromSheet();
-                    resetForm();
-                    submitBtn.disabled = false;
-                    document.getElementById('cardsContainer').scrollIntoView({ behavior: 'smooth' });
-                }, 1200);
-
-            } catch (err) {
-                alert("Terjadi kesalahan saat menyimpan data ke spreadsheet.");
-                submitBtn.disabled = false;
-                submitBtnText.innerText = memberId ? 'Update Data Pemuda' : 'Simpan Data Pemuda';
-            }
-        }
-
-        async function deleteMember(id) {
-            const member = members.find(m => m.id.toString() === id.toString());
-            if (!member) return;
-
-            if (confirm(`Hapus data anggota "${member.fullName}" dari Google Sheets?`)) {
-                try {
-                    await fetch(GOOGLE_SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ action: 'delete', payload: { id: id } })
-                    });
-                    setTimeout(() => fetchMembersFromSheet(), 1200);
-                } catch (e) {
-                    alert("Gagal menghapus data dari spreadsheet.");
-                }
-            }
-        }
-
-        // LOGO LOGIC
-        function loadLogo() {
-            const savedCustomLogo = localStorage.getItem(LOGO_STORAGE_KEY);
-            if (savedCustomLogo) {
-                applyCustomLogoUI(savedCustomLogo);
-            } else {
-                applyOfficialSvgLogoUI();
-            }
-        }
-
-        function applyOfficialSvgLogoUI() {
-            document.getElementById('officialSvgLogo').classList.remove('hidden');
-            document.getElementById('customLogoImg').classList.add('hidden');
-        }
-
-        function applyCustomLogoUI(dataUrl) {
-            const customImg = document.getElementById('customLogoImg');
-            customImg.src = dataUrl;
-            customImg.classList.remove('hidden');
-            document.getElementById('officialSvgLogo').classList.add('hidden');
-        }
-
-        function openLogoModal() {
-            document.getElementById('logoModal').classList.remove('hidden');
-        }
-
-        function closeLogoModal() {
-            document.getElementById('logoModal').classList.add('hidden');
-        }
-
-        function handleLogoFileUpload(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            if (file.size > 4 * 1024 * 1024) {
-                alert('Ukuran logo terlalu besar. Maksimal 4MB.');
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const logoBase64 = e.target.result;
-                localStorage.setItem(LOGO_STORAGE_KEY, logoBase64);
-                applyCustomLogoUI(logoBase64);
-                closeLogoModal();
-            };
-            reader.readAsDataURL(file);
-        }
-
-        function resetToDefaultLogo() {
-            localStorage.removeItem(LOGO_STORAGE_KEY);
-            applyOfficialSvgLogoUI();
-            closeLogoModal();
-        }
-
-        // HELPER UTILS & STATS
-        function updateStats() {
-            document.getElementById('statTotal').innerText = members.length;
-            document.getElementById('statSek1').innerText = members.filter(m => m.sector === 'Sektor 01').length;
-            document.getElementById('statSek2').innerText = members.filter(m => m.sector === 'Sektor 02').length;
-            document.getElementById('statSek3').innerText = members.filter(m => m.sector === 'Sektor 03').length;
-            document.getElementById('statSek4').innerText = members.filter(m => m.sector === 'Sektor 04').length;
-        }
-
-        function calculateAge(birthDateStr) {
-            if (!birthDateStr) return 0;
-            const today = new Date();
-            const birthDate = new Date(birthDateStr);
-            let age = today.getFullYear() - birthDate.getFullYear();
-            const monthDiff = today.getMonth() - birthDate.getMonth();
-            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-                age--;
-            }
-            return age;
-        }
-
-        function formatDateIndo(dateStr) {
-            if (!dateStr) return '-';
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            return new Date(dateStr).toLocaleDateString('id-ID', options);
-        }
-
-        function updateAgeIndicator() {
-            const birthDateVal = document.getElementById('birthDate').value;
-            const ageIndicator = document.getElementById('ageIndicator');
-            if (birthDateVal) {
-                const age = calculateAge(birthDateVal);
-                ageIndicator.innerText = `${age} Tahun`;
-                ageIndicator.classList.remove('hidden');
-            } else {
-                ageIndicator.classList.add('hidden');
+            const val = document.getElementById('quickDateText').value;
+            const parts = val.split('/');
+            if (parts.length === 3 && parts[2].length === 4) {
+                const d = parts[0].padStart(2, '0');
+                const m = parts[1].padStart(2, '0');
+                const y = parts[2];
+                document.getElementById('dobDay').value = d;
+                document.getElementById('dobMonth').value = m;
+                document.getElementById('dobYear').value = y;
+                const dateStr = `${y}-${m}-${d}`;
+                document.getElementById('birthDate').value = dateStr;
+                updateAgeDisplay(dateStr);
             }
         }
 
@@ -1058,197 +513,81 @@
             }
         }
 
-        function toggleViewMode(mode) {
-            viewMode = mode;
-            const cardsContainer = document.getElementById('cardsContainer');
-            const tableContainer = document.getElementById('tableContainer');
-            const viewGridBtn = document.getElementById('viewGridBtn');
-            const viewTableBtn = document.getElementById('viewTableBtn');
-
-            if (mode === 'grid') {
-                cardsContainer.classList.remove('hidden');
-                tableContainer.classList.add('hidden');
-                viewGridBtn.className = 'p-2 bg-brand-900/50 border border-brand-700 text-brand-400 rounded-xl text-xs hover:bg-zinc-800';
-                viewTableBtn.className = 'p-2 bg-zinc-950 border border-zinc-800 text-zinc-400 rounded-xl text-xs hover:bg-zinc-800';
-            } else {
-                cardsContainer.classList.add('hidden');
-                tableContainer.classList.remove('hidden');
-                viewTableBtn.className = 'p-2 bg-brand-900/50 border border-brand-700 text-brand-400 rounded-xl text-xs hover:bg-zinc-800';
-                viewGridBtn.className = 'p-2 bg-zinc-950 border border-zinc-800 text-zinc-400 rounded-xl text-xs hover:bg-zinc-800';
-            }
-        }
-
-        function handleFileUpload(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            if (file.size > 3 * 1024 * 1024) {
-                alert('Ukuran foto terlalu besar. Maksimal 3MB.');
+        // Data Management (CRUD)
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const photo = document.getElementById('photoBase64').value;
+            if (!photo) {
+                alert("Silakan unggah foto selfie terlebih dahulu.");
                 return;
             }
 
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                setPhotoData(e.target.result);
+            const id = document.getElementById('memberId').value;
+            let jobVal = document.getElementById('job').value;
+            if (jobVal === 'Lainnya') {
+                jobVal = document.getElementById('customJobInput').value;
+            }
+
+            const payload = {
+                id: id ? parseInt(id) : Date.now(),
+                photo,
+                name: document.getElementById('fullName').value,
+                birthDate: document.getElementById('birthDate').value,
+                gender: document.querySelector('input[name="gender"]:checked').value,
+                job: jobVal,
+                sector: document.getElementById('sector').value,
+                rtRw: document.getElementById('rtRw').value || '-'
             };
-            reader.readAsDataURL(file);
-        }
 
-        function setPhotoData(base64String) {
-            document.getElementById('photoBase64').value = base64String;
-            const imgPreview = document.getElementById('photoPreview');
-            const placeholder = document.getElementById('photoPlaceholder');
-            
-            imgPreview.src = base64String;
-            imgPreview.classList.remove('hidden');
-            placeholder.classList.add('hidden');
-        }
-
-        async function openCameraModal() {
-            const modal = document.getElementById('cameraModal');
-            const video = document.getElementById('webcamVideo');
-            modal.classList.remove('hidden');
-
-            try {
-                webcamStream = await navigator.mediaDevices.getUserMedia({
-                    video: { facingMode: 'user', width: { ideal: 640 }, height: { ideal: 640 } },
-                    audio: false
-                });
-                video.srcObject = webcamStream;
-            } catch (err) {
-                alert('Gagal mengakses kamera selfie: ' + err.message + '. Gunakan Upload File.');
-                closeCameraModal();
-            }
-        }
-
-        function closeCameraModal() {
-            const modal = document.getElementById('cameraModal');
-            modal.classList.add('hidden');
-            if (webcamStream) {
-                webcamStream.getTracks().forEach(track => track.stop());
-                webcamStream = null;
-            }
-        }
-
-        function takeSnapshot() {
-            const video = document.getElementById('webcamVideo');
-            const canvas = document.getElementById('webcamCanvas');
-            const context = canvas.getContext('2d');
-
-            canvas.width = 400;
-            canvas.height = 400;
-
-            context.translate(canvas.width, 0);
-            context.scale(-1, 1);
-            context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-            const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
-            setPhotoData(dataUrl);
-            closeCameraModal();
-        }
-
-        function renderMembers() {
-            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
-            const selectedSector = document.getElementById('filterSector').value;
-
-            const filtered = members.filter(m => {
-                const matchesSearch = (m.fullName || '').toLowerCase().includes(searchQuery) || (m.job || '').toLowerCase().includes(searchQuery);
-                const matchesSector = selectedSector === 'ALL' || m.sector === selectedSector;
-                return matchesSearch && matchesSector;
-            });
-
-            const cardsContainer = document.getElementById('cardsContainer');
-            const tableBody = document.getElementById('tableBody');
-            const emptyState = document.getElementById('emptyState');
-
-            cardsContainer.innerHTML = '';
-            tableBody.innerHTML = '';
-
-            if (filtered.length === 0) {
-                emptyState.classList.remove('hidden');
-                return;
+            if (id) {
+                members = members.map(m => m.id === payload.id ? payload : m);
             } else {
-                emptyState.classList.add('hidden');
+                members.push(payload);
             }
 
-            filtered.forEach(m => {
-                const age = calculateAge(m.birthDate);
-                const genderIcon = m.gender === 'Laki-laki' 
-                    ? '<i class="fa-solid fa-mars text-blue-400"></i>' 
-                    : '<i class="fa-solid fa-venus text-pink-400"></i>';
+            localStorage.setItem('kt_members', JSON.stringify(members));
+            resetForm();
+            renderTable();
+        }
 
-                // Grid Card View
-                const cardHtml = `
-                    <div class="glass-card glass-card-hover rounded-2xl p-5 border border-zinc-800 transition duration-300 relative group flex flex-col justify-between space-y-4">
-                        <div class="flex items-start justify-between gap-3">
-                            <div class="flex items-center gap-3">
-                                <img src="${m.photo || 'https://placehold.co/100x100/18181b/e11d48?text=Selfie'}" 
-                                     onerror="this.src='https://placehold.co/100x100/18181b/e11d48?text=Foto'"
-                                     class="w-14 h-14 rounded-xl object-cover border border-zinc-700 shadow-md group-hover:scale-105 transition duration-300" alt="Selfie">
-                                <div>
-                                    <h3 class="font-extrabold text-white text-sm line-clamp-1">${m.fullName}</h3>
-                                    <p class="text-xs text-brand-400 font-semibold mt-0.5 line-clamp-1">${m.job}</p>
-                                    <div class="flex items-center gap-2 mt-1.5">
-                                        <span class="text-[10px] px-2 py-0.5 bg-zinc-900 border border-zinc-800 text-zinc-300 rounded-md font-semibold">
-                                            ${genderIcon} ${m.gender}
-                                        </span>
-                                        <span class="text-[10px] px-2 py-0.5 bg-brand-950 border border-brand-900 text-brand-300 rounded-md font-semibold">
-                                            ${age} Thn
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        function editMember(id) {
+            const m = members.find(item => item.id === id);
+            if (!m) return;
+            document.getElementById('memberId').value = m.id;
+            document.getElementById('fullName').value = m.name;
+            document.getElementById('birthDate').value = m.birthDate;
+            onNativeDateChange();
 
-                        <div class="pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs">
-                            <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 text-zinc-300 rounded-lg text-[11px] font-bold">
-                                <i class="fa-solid fa-location-dot text-brand-500 mr-1"></i> ${m.sector}
-                            </span>
-                            <div class="flex items-center gap-1">
-                                <button onclick="showMemberDetail('${m.id}')" class="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-lg transition" title="Detail">
-                                    <i class="fa-solid fa-eye"></i>
-                                </button>
-                                <button onclick="editMember('${m.id}')" class="p-2 text-zinc-400 hover:text-amber-400 hover:bg-zinc-800 rounded-lg transition" title="Edit">
-                                    <i class="fa-solid fa-pen"></i>
-                                </button>
-                                <button onclick="deleteMember('${m.id}')" class="p-2 text-zinc-400 hover:text-rose-500 hover:bg-zinc-800 rounded-lg transition" title="Hapus">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                cardsContainer.innerHTML += cardHtml;
+            const genderRadio = document.querySelector(`input[name="gender"][value="${m.gender}"]`);
+            if (genderRadio) genderRadio.checked = true;
 
-                // Table Row View
-                const rowHtml = `
-                    <tr class="hover:bg-zinc-900/50 transition">
-                        <td class="p-3.5">
-                            <div class="flex items-center gap-3">
-                                <img src="${m.photo || 'https://placehold.co/100x100/18181b/e11d48?text=Selfie'}" class="w-9 h-9 rounded-lg object-cover border border-zinc-800" alt="Selfie">
-                                <div>
-                                    <div class="font-bold text-white">${m.fullName}</div>
-                                    <div class="text-[10px] text-zinc-500">${formatDateIndo(m.birthDate)}</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="p-3.5 text-zinc-300">
-                            <div>${genderIcon} ${m.gender}</div>
-                            <div class="text-[10px] text-brand-400 font-semibold">${age} Tahun</div>
-                        </td>
-                        <td class="p-3.5 font-semibold text-zinc-300">
-                            <span class="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800">${m.sector}</span>
-                        </td>
-                        <td class="p-3.5 text-zinc-300">${m.job}</td>
-                        <td class="p-3.5 text-right space-x-1">
-                            <button onclick="showMemberDetail('${m.id}')" class="p-1.5 text-zinc-400 hover:text-white"><i class="fa-solid fa-eye"></i></button>
-                            <button onclick="editMember('${m.id}')" class="p-1.5 text-zinc-400 hover:text-amber-400"><i class="fa-solid fa-pen"></i></button>
-                            <button onclick="deleteMember('${m.id}')" class="p-1.5 text-zinc-400 hover:text-rose-500"><i class="fa-solid fa-trash-can"></i></button>
-                        </td>
-                    </tr>
-                `;
-                tableBody.innerHTML += rowHtml;
-            });
+            const jobSelect = document.getElementById('job');
+            const options = Array.from(jobSelect.options).map(o => o.value);
+            if (options.includes(m.job)) {
+                jobSelect.value = m.job;
+                checkCustomJob();
+            } else {
+                jobSelect.value = 'Lainnya';
+                checkCustomJob();
+                document.getElementById('customJobInput').value = m.job;
+            }
+
+            document.getElementById('sector').value = m.sector;
+            document.getElementById('rtRw').value = m.rtRw;
+            setPhoto(m.photo);
+
+            document.getElementById('formTitle').innerText = "Edit Data Anggota";
+            document.getElementById('submitBtn').innerText = "Simpan Perubahan";
+            document.getElementById('cancelEditBtn').classList.remove('hidden');
+            scrollToForm();
+        }
+
+        function deleteMember(id) {
+            if (confirm("Apakah Anda yakin ingin menghapus data anggota ini?")) {
+                members = members.filter(m => m.id !== id);
+                localStorage.setItem('kt_members', JSON.stringify(members));
+                renderTable();
+            }
         }
 
         function resetForm() {
@@ -1259,101 +598,80 @@
             document.getElementById('photoPlaceholder').classList.remove('hidden');
             document.getElementById('ageIndicator').classList.add('hidden');
             document.getElementById('customJobInput').classList.add('hidden');
-            
-            document.getElementById('dobDay').value = '';
-            document.getElementById('dobMonth').value = '';
-            document.getElementById('dobYear').value = '';
-            document.getElementById('quickDateText').value = '';
-
-            document.getElementById('formTitle').innerHTML = '<i class="fa-solid fa-user-plus text-brand-500"></i> Pendataan Anggota Baru';
-            document.getElementById('submitBtnText').innerText = 'Simpan Data Pemuda';
+            document.getElementById('formTitle').innerText = "Pendataan Anggota Baru";
+            document.getElementById('submitBtn').innerText = "Simpan Data Pemuda";
             document.getElementById('cancelEditBtn').classList.add('hidden');
         }
 
-        function editMember(id) {
-            const member = members.find(m => m.id.toString() === id.toString());
-            if (!member) return;
+        // Render Table & Stats
+        function renderTable() {
+            const tbody = document.getElementById('memberTableBody');
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const filterSec = document.getElementById('filterSector').value;
 
-            document.getElementById('memberId').value = member.id;
-            document.getElementById('fullName').value = member.fullName;
-            
-            setDateValues(member.birthDate);
-
-            const genderRadio = document.querySelector(`input[name="gender"][value="${member.gender}"]`);
-            if (genderRadio) genderRadio.checked = true;
-
-            const jobSelect = document.getElementById('job');
-            const customInput = document.getElementById('customJobInput');
-            const jobOptions = Array.from(jobSelect.options).map(o => o.value);
-
-            if (jobOptions.includes(member.job)) {
-                jobSelect.value = member.job;
-                customInput.classList.add('hidden');
-            } else {
-                jobSelect.value = 'Lainnya';
-                customInput.value = member.job;
-                customInput.classList.remove('hidden');
-            }
-
-            const sectorRadio = document.querySelector(`input[name="sector"][value="${member.sector}"]`);
-            if (sectorRadio) sectorRadio.checked = true;
-
-            setPhotoData(member.photo);
-
-            document.getElementById('formTitle').innerHTML = '<i class="fa-solid fa-pen-to-square text-amber-500"></i> Edit Data Anggota';
-            document.getElementById('submitBtnText').innerText = 'Update Data Pemuda';
-            document.getElementById('cancelEditBtn').classList.remove('hidden');
-
-            scrollToForm();
-        }
-
-        function showMemberDetail(id) {
-            const member = members.find(m => m.id.toString() === id.toString());
-            if (!member) return;
-
-            document.getElementById('detailPhoto').src = member.photo || 'https://placehold.co/100x100/18181b/e11d48?text=Selfie';
-            document.getElementById('detailName').innerText = member.fullName;
-            document.getElementById('detailJob').innerText = member.job;
-            document.getElementById('detailSector').innerText = member.sector;
-            document.getElementById('detailGender').innerText = member.gender;
-            document.getElementById('detailBirthDate').innerText = formatDateIndo(member.birthDate);
-            document.getElementById('detailAge').innerText = `${calculateAge(member.birthDate)} Tahun`;
-
-            document.getElementById('modalEditBtn').onclick = function() {
-                closeDetailModal();
-                editMember(member.id);
-            };
-
-            document.getElementById('detailModal').classList.remove('hidden');
-        }
-
-        function closeDetailModal() {
-            document.getElementById('detailModal').classList.add('hidden');
-        }
-
-        function scrollToForm() {
-            document.getElementById('formSection').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function exportDataCSV() {
-            if (members.length === 0) {
-                alert('Tidak ada data untuk diexport!');
-                return;
-            }
-
-            let csvContent = "data:text/csv;charset=utf-8,";
-            csvContent += "ID,Nama Lengkap,Tanggal Lahir,Usia,Jenis Kelamin,Pekerjaan,Sektor Alamat\n";
-
-            members.forEach(m => {
-                const age = calculateAge(m.birthDate);
-                const row = `"${m.id}","${m.fullName}","${m.birthDate}","${age}","${m.gender}","${m.job}","${m.sector}"`;
-                csvContent += row + "\n";
+            const filtered = members.filter(m => {
+                const matchSearch = m.name.toLowerCase().includes(search) || m.job.toLowerCase().includes(search);
+                const matchSector = filterSec === 'ALL' || m.sector === filterSec;
+                return matchSearch && matchSector;
             });
 
-            const encodedUri = encodeURI(csvContent);
+            tbody.innerHTML = '';
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="p-6 text-center text-zinc-500">Belum ada data pemuda/pemudi terdaftar.</td></tr>`;
+            } else {
+                filtered.forEach(m => {
+                    const age = calculateAge(m.birthDate);
+                    const genderBadge = m.gender === 'Laki-laki' 
+                        ? `<span class="text-blue-400 bg-blue-950/50 px-2 py-0.5 rounded text-[10px] font-bold">L</span>` 
+                        : `<span class="text-pink-400 bg-pink-950/50 px-2 py-0.5 rounded text-[10px] font-bold">P</span>`;
+
+                    tbody.innerHTML += `
+                        <tr class="hover:bg-zinc-900/50 transition">
+                            <td class="p-4 flex items-center gap-3">
+                                <img src="${m.photo}" class="w-9 h-9 rounded-xl object-cover border border-zinc-700">
+                                <div>
+                                    <div class="font-bold text-white flex items-center gap-2">${m.name} ${genderBadge}</div>
+                                    <div class="text-[11px] text-zinc-500">${m.birthDate || '-'}</div>
+                                </div>
+                            </td>
+                            <td class="p-4 font-bold text-white">${age} Thn</td>
+                            <td class="p-4">
+                                <div class="font-semibold text-zinc-200">${m.sector}</div>
+                                <div class="text-[11px] text-zinc-500">${m.rtRw}</div>
+                            </td>
+                            <td class="p-4 font-medium text-zinc-300">${m.job}</td>
+                            <td class="p-4 text-center space-x-2">
+                                <button onclick="editMember(${m.id})" class="p-2 bg-zinc-800 hover:bg-zinc-700 text-amber-400 rounded-lg transition" title="Edit"><i class="fa-solid fa-pen"></i></button>
+                                <button onclick="deleteMember(${m.id})" class="p-2 bg-zinc-800 hover:bg-zinc-700 text-rose-500 rounded-lg transition" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    `;
+                });
+            }
+
+            // Update Stats
+            document.getElementById('statTotal').innerText = members.length;
+            document.getElementById('statSek1').innerText = members.filter(m => m.sector === 'Sektor 01').length;
+            document.getElementById('statSek2').innerText = members.filter(m => m.sector === 'Sektor 02').length;
+            document.getElementById('statSek3').innerText = members.filter(m => m.sector === 'Sektor 03').length;
+            document.getElementById('statSek4').innerText = members.filter(m => m.sector === 'Sektor 04').length;
+        }
+
+        // Export Data CSV
+        function exportDataCSV() {
+            if (members.length === 0) {
+                alert("Tidak ada data untuk diekspor!");
+                return;
+            }
+            let csv = "Nama,Tanggal Lahir,Jenis Kelamin,Pekerjaan,Sektor,RT_RW\n";
+            members.forEach(m => {
+                csv += `"${m.name}","${m.birthDate}","${m.gender}","${m.job}","${m.sector}","${m.rtRw}"\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
             const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", `KT_PanduMuda_Sawahan5_PandawaLima_${new Date().toISOString().slice(0,10)}.csv`);
+            link.href = URL.createObjectURL(blob);
+            link.setAttribute("download", `data_pemuda_sawahan5_${Date.now()}.csv`);
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
