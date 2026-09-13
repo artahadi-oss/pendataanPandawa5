@@ -530,47 +530,6 @@
             renderTable();
         }
 
-        function editMember(id) {
-            const m = members.find(item => item.id === id);
-            if (!m) return;
-            document.getElementById('memberId').value = m.id;
-            document.getElementById('fullName').value = m.name;
-            document.getElementById('birthDate').value = m.birthDate;
-            onNativeDateChange();
-
-            const genderRadio = document.querySelector(`input[name="gender"][value="${m.gender}"]`);
-            if (genderRadio) genderRadio.checked = true;
-
-            const jobSelect = document.getElementById('job');
-            const options = Array.from(jobSelect.options).map(opt => opt.value);
-            if (options.includes(m.job)) {
-                jobSelect.value = m.job;
-                document.getElementById('customJobInput').classList.add('hidden');
-            } else {
-                jobSelect.value = 'Lainnya';
-                const customInput = document.getElementById('customJobInput');
-                customInput.value = m.job;
-                customInput.classList.remove('hidden');
-            }
-
-            document.getElementById('sector').value = m.sector;
-            document.getElementById('rtRw').value = m.rtRw;
-            setPhoto(m.photo);
-
-            document.getElementById('formTitle').innerHTML = `<i class="fa-solid fa-user-pen text-brand-500"></i> Edit Data Anggota`;
-            document.getElementById('submitBtn').innerText = `Update Data Anggota`;
-            document.getElementById('cancelEditBtn').classList.remove('hidden');
-            scrollToForm();
-        }
-
-        function deleteMember(id) {
-            if (confirm("Apakah Anda yakin ingin menghapus data anggota ini?")) {
-                members = members.filter(item => item.id !== id);
-                localStorage.setItem('kt_members', JSON.stringify(members));
-                renderTable();
-            }
-        }
-
         function resetForm() {
             document.getElementById('memberForm').reset();
             document.getElementById('memberId').value = '';
@@ -578,41 +537,92 @@
             document.getElementById('photoPreview').src = '';
             document.getElementById('photoPreview').classList.add('hidden');
             document.getElementById('photoPlaceholder').classList.remove('hidden');
+            document.getElementById('formTitle').innerHTML = '<i class="fa-solid fa-user-plus text-brand-500"></i> Pendataan Anggota Baru';
+            document.getElementById('submitBtn').innerText = 'Simpan Data Pemuda';
+            document.getElementById('cancelEditBtn').classList.add('hidden');
             document.getElementById('ageIndicator').classList.add('hidden');
             document.getElementById('customJobInput').classList.add('hidden');
-            document.getElementById('formTitle').innerHTML = `<i class="fa-solid fa-user-plus text-brand-500"></i> Pendataan Anggota Baru`;
-            document.getElementById('submitBtn').innerText = `Simpan Data Pemuda`;
-            document.getElementById('cancelEditBtn').classList.add('hidden');
+        }
+
+        function editMember(id) {
+            const member = members.find(m => m.id === id);
+            if (!member) return;
+
+            document.getElementById('memberId').value = member.id;
+            document.getElementById('fullName').value = member.name;
+            document.getElementById('birthDate').value = member.birthDate;
+            document.getElementById('sector').value = member.sector;
+            document.getElementById('rtRw').value = member.rtRw;
+
+            // Set Gender
+            const genderRadios = document.querySelectorAll('input[name="gender"]');
+            genderRadios.forEach(r => {
+                if (r.value === member.gender) r.checked = true;
+            });
+
+            // Set Job
+            const jobSelect = document.getElementById('job');
+            const customJobInput = document.getElementById('customJobInput');
+            const standardJobs = Array.from(jobSelect.options).map(o => o.value);
+            
+            if (standardJobs.includes(member.job)) {
+                jobSelect.value = member.job;
+                customJobInput.classList.add('hidden');
+                customJobInput.required = false;
+            } else {
+                jobSelect.value = 'Lainnya';
+                customJobInput.classList.remove('hidden');
+                customJobInput.value = member.job;
+                customJobInput.required = true;
+            }
+
+            // Set Photo
+            if (member.photo) {
+                setPhoto(member.photo);
+            }
+
+            // Set Date Dropdowns
+            if (member.birthDate) {
+                const [y, m, d] = member.birthDate.split('-');
+                document.getElementById('dobDay').value = d;
+                document.getElementById('dobMonth').value = m;
+                document.getElementById('dobYear').value = y;
+                document.getElementById('quickDateText').value = `${d}/${m}/${y}`;
+                updateAgeDisplay(member.birthDate);
+            }
+
+            document.getElementById('formTitle').innerHTML = '<i class="fa-solid fa-user-pen text-amber-500"></i> Edit Data Anggota';
+            document.getElementById('submitBtn').innerText = 'Perbarui Data Pemuda';
+            document.getElementById('cancelEditBtn').classList.remove('hidden');
+            scrollToForm();
+        }
+
+        function deleteMember(id) {
+            if (confirm("Apakah Anda yakin ingin menghapus data pemuda ini?")) {
+                members = members.filter(m => m.id !== id);
+                localStorage.setItem('kt_members', JSON.stringify(members));
+                renderTable();
+            }
         }
 
         function renderTable() {
-            const search = document.getElementById('searchInput').value.toLowerCase();
-            const filterSec = document.getElementById('filterSector').value;
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+            const sectorVal = document.getElementById('filterSector').value;
             const tbody = document.getElementById('memberTableBody');
             tbody.innerHTML = '';
 
-            let countTotal = 0;
-            let countSek1 = 0, countSek2 = 0, countSek3 = 0, countSek4 = 0;
-
-            members.forEach(m => {
-                if (m.sector === 'Sektor 01') countSek1++;
-                if (m.sector === 'Sektor 02') countSek2++;
-                if (m.sector === 'Sektor 03') countSek3++;
-                if (m.sector === 'Sektor 04') countSek4++;
+            let filtered = members.filter(m => {
+                const matchSearch = m.name.toLowerCase().includes(searchVal) || m.job.toLowerCase().includes(searchVal);
+                const matchSector = sectorVal === 'ALL' || m.sector === sectorVal;
+                return matchSearch && matchSector;
             });
-            countTotal = members.length;
 
-            document.getElementById('statTotal').innerText = countTotal;
-            document.getElementById('statSek1').innerText = countSek1;
-            document.getElementById('statSek2').innerText = countSek2;
-            document.getElementById('statSek3').innerText = countSek3;
-            document.getElementById('statSek4').innerText = countSek4;
-
-            const filtered = members.filter(m => {
-                const matchSearch = m.name.toLowerCase().includes(search) || m.job.toLowerCase().includes(search);
-                const matchSec = filterSec === 'ALL' || m.sector === filterSec;
-                return matchSearch && matchSec;
-            });
+            // Update Statistik
+            document.getElementById('statTotal').innerText = members.length;
+            document.getElementById('statSek1').innerText = members.filter(m => m.sector === 'Sektor 01').length;
+            document.getElementById('statSek2').innerText = members.filter(m => m.sector === 'Sektor 02').length;
+            document.getElementById('statSek3').innerText = members.filter(m => m.sector === 'Sektor 03').length;
+            document.getElementById('statSek4').innerText = members.filter(m => m.sector === 'Sektor 04').length;
 
             if (filtered.length === 0) {
                 tbody.innerHTML = `<tr><td colspan="5" class="p-6 text-center text-zinc-500">Belum ada data anggota yang terdaftar.</td></tr>`;
@@ -621,36 +631,35 @@
 
             filtered.forEach(m => {
                 const age = calculateAge(m.birthDate);
-                const tr = document.createElement('tr');
-                tr.className = "hover:bg-zinc-900/50 transition";
-                tr.innerHTML = `
-                    <td class="p-4 flex items-center gap-3">
-                        <img src="${m.photo}" class="w-10 h-10 rounded-xl object-cover border border-zinc-700 flex-shrink-0" alt="Foto">
-                        <div>
-                            <span class="font-bold text-white block">${m.name}</span>
-                            <span class="text-[10px] text-zinc-400">${m.gender}</span>
-                        </div>
-                    </td>
-                    <td class="p-4 text-zinc-300">${age} Thn</td>
-                    <td class="p-4">
-                        <span class="px-2 py-0.5 bg-zinc-800 text-zinc-300 rounded-md font-semibold text-[11px] block w-max">${m.sector}</span>
-                        <span class="text-[10px] text-zinc-500 mt-0.5 block">${m.rtRw}</span>
-                    </td>
-                    <td class="p-4 text-zinc-300">${m.job}</td>
-                    <td class="p-4 text-center">
-                        <div class="flex items-center justify-center gap-1.5">
-                            <button onclick="editMember(${m.id})" class="p-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white rounded-lg transition" title="Edit"><i class="fa-solid fa-pen text-xs"></i></button>
-                            <button onclick="deleteMember(${m.id})" class="p-1.5 bg-rose-950/50 hover:bg-rose-900 text-rose-400 rounded-lg transition" title="Hapus"><i class="fa-solid fa-trash text-xs"></i></button>
-                        </div>
-                    </td>
+                tbody.innerHTML += `
+                    <tr class="hover:bg-zinc-900/40 transition">
+                        <td class="p-4 flex items-center gap-3">
+                            <img src="${m.photo || 'https://via.placeholder.com/40'}" class="w-10 h-10 rounded-xl object-cover border border-zinc-700" alt="Foto">
+                            <div>
+                                <p class="font-bold text-white">${m.name}</p>
+                                <p class="text-[11px] text-zinc-500">${m.gender}</p>
+                            </div>
+                        </td>
+                        <td class="p-4 font-semibold text-zinc-300">${age} Th</td>
+                        <td class="p-4">
+                            <span class="px-2 py-0.5 bg-brand-950 text-brand-400 border border-brand-800/60 rounded-md text-[11px] font-bold">${m.sector}</span>
+                            <span class="block text-[10px] text-zinc-500 mt-0.5">${m.rtRw}</span>
+                        </td>
+                        <td class="p-4 text-zinc-300">${m.job}</td>
+                        <td class="p-4 text-center">
+                            <div class="flex items-center justify-center gap-1.5">
+                                <button onclick="editMember(${m.id})" class="p-1.5 bg-zinc-800 hover:bg-zinc-700 text-amber-400 rounded-lg transition" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button onclick="deleteMember(${m.id})" class="p-1.5 bg-zinc-800 hover:bg-zinc-700 text-rose-500 rounded-lg transition" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                        </td>
+                    </tr>
                 `;
-                tbody.appendChild(tr);
             });
         }
 
         function exportDataCSV() {
             if (members.length === 0) {
-                alert("Tidak ada data untuk diexport.");
+                alert("Tidak ada data untuk diexport!");
                 return;
             }
             let csvContent = "data:text/csv;charset=utf-8,ID,Nama,Tanggal Lahir,Jenis Kelamin,Pekerjaan,Sektor,RT/RW\n";
@@ -660,7 +669,7 @@
             const encodedUri = encodeURI(csvContent);
             const link = document.createElement("a");
             link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "data_karang_taruna_sawahan5.csv");
+            link.setAttribute("download", "data_pemuda_sawahan5.csv");
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
